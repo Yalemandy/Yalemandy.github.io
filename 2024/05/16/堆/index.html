@@ -1,0 +1,471 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>【C语言|数据结构】堆 | Yalemandy Blog</title><meta name="keywords" content="program"><meta name="author" content="Yalemandy"><meta name="copyright" content="Yalemandy"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="【C语言|数据结构】堆"><meta name="application-name" content="【C语言|数据结构】堆"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="【C语言|数据结构】堆"><meta property="og:url" content="https://github.com/Yalemandy/Yalemandy.github.io/2024/05/16/%E5%A0%86/index.html"><meta property="og:site_name" content="Yalemandy Blog"><meta property="og:description" content="@[toc] 前言二叉树是一种重要的数据结构，其中每个节点最多有两个子节点：左子节点和右子节点。它常用于实现搜索算法、排序算法、数据存储和图形表示等。二叉树具有递归性，可以通过遍历算法（如前序、中序、后序和层次遍历）来访问其节点。学习和理解二叉树对于掌握更复杂的数据结构和算法至关重要。  堆1.1"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/mafulong/mdPic@vv1/v1/20220111162923.png"><meta property="article:author" content="Yalemandy"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/mafulong/mdPic@vv1/v1/20220111162923.png"><meta name="description" content="@[toc] 前言二叉树是一种重要的数据结构，其中每个节点最多有两个子节点：左子节点和右子节点。它常用于实现搜索算法、排序算法、数据存储和图形表示等。二叉树具有递归性，可以通过遍历算法（如前序、中序、后序和层次遍历）来访问其节点。学习和理解二叉树对于掌握更复杂的数据结构和算法至关重要。  堆1.1"><link rel="shortcut icon" href="/Yalemandy/Yalemandy.github.io/favicon.ico"><link rel="canonical" href="https://github.com/Yalemandy/Yalemandy.github.io/2024/05/16/%E5%A0%86/"><link rel="preconnect" href="//cdn.cbd.int"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@1.0.17/lib/assets/font-awesome-animation.min.css"><link rel="stylesheet" href="/Yalemandy/Yalemandy.github.io/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/Yalemandy/Yalemandy.github.io/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: Yalemandy","link":"链接: ","source":"来源: Yalemandy Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'Yalemandy Blog',
+  title: '【C语言|数据结构】堆',
+  postAI: '',
+  pageFillDescription: '前言, 堆, 1.1 二叉树的概念, 1.2 满二叉树和完美二叉树, 1.3 堆的概念, 1.4 堆的性质, 1.4 堆的实现, 1.4.1堆的向上调整算法, 1.4.1堆的向下调整算法, 1.4.1堆的接口实现, 1.4.1.1堆的初始化, 1.4.1.2堆的销毁, 1.4.1.3堆的插入, 1.4.1.4堆的删除, 1.4.1.4堆的判空, 1.4.1.4 获取堆的数据个数前言二叉树是一种重要的数据结构其中每个节点最多有两个子节点左子节点和右子节点它常用于实现搜索算法排序算法数据存储和图形表示等二叉树具有递归性可以通过遍历算法如前序中序后序和层次遍历来访问其节点学习和理解二叉树对于掌握更复杂的数据结构和算法至关重要堆二叉树的概念二叉树是一种特殊的树形数据结构它的每个节点最多有两个子节点通常被称为左子节点和右子节点二叉树的子树有左右之分其次序不能任意颠倒根节点二叉树的起始节点它没有父节点但可能有左子节点和右子节点父节点对于每个节点除根节点之外的节点都有父节点是一个具有子节点的节点左子节点对于每个节点其左下方的节点称为其左子节点右子节点对于每个节点其右下方的节点称为其右子节点叶子节点没有子节点的节点称为叶子节点非叶子节点除了叶子节点以外的节点都称为非叶子节点度节点的度是指该节点的子节点数量在二叉树中节点的度最大为深度从根节点到最远叶子节点的最长路径上的节点数称为二叉树的深度高度对于任意节点的高度为从到一片树叶的最长路径上的节点数所有树叶的高度为根节点的高度就是树的高度满二叉树和完美二叉树满二叉树除了叶子节点外每一个节点都有左右两个子节点的二叉树称为满二叉树完全二叉树完全二叉树从根结点到倒数第二层满足完美二叉树最后一层可以不完全填充其叶子结点必须靠左对齐且不能有短最后一层最少可以只有一个这不是一个完美二叉树堆的概念堆是计算机科学中一类特殊的数据结构的统称堆通常是一个可以被看做一棵完全二叉树的数组对象堆是非线性数据结构相当于一维数组有两个直接后继大堆父节点一定比子节点大但是兄弟节点之间不存在大小关系堆的根节点是整个堆中最大的数小堆父节点一定比子节点小但是兄弟节点之间不存在大小关系堆的根节点是整个堆中最小的数堆的父亲节点的下标和子节点的下标可以进行相互运算堆的性质堆是完美二叉树构成大堆小堆堆的实现堆的向上调整算法给定一个数组且这个堆是一个小堆逻辑上看作是一种完美二叉树需要传两个参数一个数组一个就是插入位置的节点在数组中的下标在数组的最后插入数据开始进行向上调整算法如果这个节点小于他的父亲节点那就进行交换如果这个节点大于他的父亲节点那就结束向上调整这里给一组数据进行交换堆的向上调整算法代码实现堆的向下调整算法给定一个数组且这个堆是一个小堆逻辑上看作是一种完美二叉树然后我们从根节点开始向下调整向下调整算法有一个前提左右子树必须是一个堆才能进行调整然后计算出这个根节点的两个孩子节点进行比较哪个小让其与根节点进行比较这里需要传三个参数第一个数组第二个是数组的个数第三个是根节点的下标如果根节点大于孩子节点那就进行交换如果根节点小于孩子节点就停止交换这里给一组数据进行交换堆的向下调整算法代码实现这里可以使用假设法假设法这个位置需要进行判断是否是小的哪个孩子不是则需要进行更新堆的接口实现堆的初始化用于初始化堆结构为堆的后续操作做好准备堆的销毁释放堆占用的资源通常涉及删除堆中的所有元素和释放内存堆的插入向堆中插入一个新元素并保持堆的性质大堆或小堆堆的删除删除堆顶数据将堆顶数据和堆尾数据进行交换并保持堆的性质大堆或小堆获取堆顶数据获取堆顶数据堆的判空判断堆是否是空堆的数据个数计算堆中的数据个数堆的初始化对于堆的这个结构体来说可以给开空间也可以不开一会儿进行的时候会进行判断所以就可以制空以防止成为野指针对于可以给这样就刚刚好和下标对上了堆顶的下一个位置的下标堆的空间堆的初始化堆的销毁堆的插入这里插入数据需要插入到这个数组的最后一个位置然后进行向上调整算法让他始终保持这个小堆大堆堆的删除需要将堆中最后一个节点于整个堆的根节点进行交换交换完成之后直接删除最后一个下标的位置在进行向下调整堆的判空因为结构体中的就是用来记录堆的数据个数的所以可以直接判断这个数是否等于获取堆的数据个数结构体中的就是用来计数的所以会方便很多',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2024-06-16 12:37:15',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" href="/Yalemandy/Yalemandy.github.io/www.yxyy04.cn" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div></div><a id="site-name" href="/Yalemandy/Yalemandy.github.io/" accesskey="h"><div class="title">Yalemandy Blog</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a><div id="he-plugin-simple"></div><script>var WIDGET = {
+  "CONFIG": {
+    "modules": "0124",
+    "background": "2",
+    "tmpColor": "FFFFFF",
+    "tmpSize": "16",
+    "cityColor": "FFFFFF",
+    "citySize": "16",
+    "aqiColor": "E8D87B",
+    "aqiSize": "16",
+    "weatherIconSize": "24",
+    "alertIconSize": "18",
+    "padding": "10px 10px 10px 10px",
+    "shadow": "0",
+    "language": "auto",
+    "borderRadius": "20",
+    "fixed": "true",
+    "vertical": "top",
+    "horizontal": "left",
+    "left": "20",
+    "top": "7.1",
+    "key": "df245676fb434a0691ead1c63341cd94"
+  }
+}
+</script><link rel="stylesheet" href="https://widget.qweather.net/simple/static/css/he-simple.css?v=1.4.0"/><script src="https://widget.qweather.net/simple/static/js/he-simple.js?v=1.4.0"></script></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/fcircle/"><i class="anzhiyufont anzhiyu-icon-artstation faa-tada" style="font-size: 0.9em;"></i><span> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/air-conditioner/"><i class="anzhiyufont anzhiyu-icon-fan faa-tada" style="font-size: 0.9em;"></i><span> 小空调</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" alt="微信" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/Yalemandy/Yalemandy.github.io/tags/program/" style="font-size: 1.05rem;">program<sup>10</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/Yalemandy/Yalemandy.github.io/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/Yalemandy/Yalemandy.github.io/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">9</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/Yalemandy/Yalemandy.github.io/categories/program/" itemprop="url">program</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/Yalemandy/Yalemandy.github.io/tags/program/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>program</span></a></span></div></div><h1 class="post-title" itemprop="name headline">【C语言|数据结构】堆</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2024-05-16T10:09:23.000Z" title="发表于 2024-05-16 18:09:23">2024-05-16</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2024-06-16T04:37:15.848Z" title="更新于 2024-06-16 12:37:15">2024-06-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为长沙"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>长沙</span></div></div></div><article class="post-content" id="article-container" itemscope itemtype="https://github.com/Yalemandy/Yalemandy.github.io/2024/05/16/%E5%A0%86/"><header><a class="post-meta-categories" href="/Yalemandy/Yalemandy.github.io/categories/program/" itemprop="url">program</a><a href="/Yalemandy/Yalemandy.github.io/tags/program/" tabindex="-1" itemprop="url">program</a><h1 id="CrawlerTitle" itemprop="name headline">【C语言|数据结构】堆</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">Yalemandy</span><time itemprop="dateCreated datePublished" datetime="2024-05-16T10:09:23.000Z" title="发表于 2024-05-16 18:09:23">2024-05-16</time><time itemprop="dateCreated datePublished" datetime="2024-06-16T04:37:15.848Z" title="更新于 2024-06-16 12:37:15">2024-06-16</time></header><p>@[toc]</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>二叉树是一种重要的数据结构，其中每个节点最多有两个子节点：左子节点和右子节点。它常用于实现搜索算法、排序算法、数据存储和图形表示等。二叉树具有递归性，可以通过遍历算法（如前序、中序、后序和层次遍历）来访问其节点。学习和理解二叉树对于掌握更复杂的数据结构和算法至关重要。 </code></p>
+<h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><h4 id="1-1-二叉树的概念"><a href="#1-1-二叉树的概念" class="headerlink" title="1.1 二叉树的概念"></a>1.1 二叉树的概念</h4><blockquote>
+<p>二叉树（Binary Tree）是一种特殊的树形数据结构，它的每个节点最多有两个子节点，通常被称为左子节点和右子节点，二叉树的子树有左右之分，其次序不能任意颠倒。</p>
+</blockquote>
+<blockquote>
+<ol>
+<li><strong>根节点</strong>（Root Node）：二叉树的起始节点，它没有父节点，但可能有左子节点和右子节点。</li>
+<li><strong>父节点</strong>（Parent Node）：对于每个节点(除根节点之外的节点)，都有父节点，是一个具有子节点的节点。</li>
+<li><strong>左子节点</strong>（Left Child）：对于每个节点，其左下方的节点称为其左子节点。</li>
+<li><strong>右子节点</strong>（Right Child）：对于每个节点，其右下方的节点称为其右子节点。</li>
+<li><strong>叶子节点</strong>（Leaf Node）：没有子节点的节点称为叶子节点。</li>
+<li><strong>非叶子节点</strong>（Non-Leaf Node）：除了叶子节点以外的节点都称为非叶子节点。</li>
+<li><strong>度</strong>（Degree）：节点的度是指该节点的子节点数量。在二叉树中，节点的度最大为2。</li>
+<li><strong>深度</strong>（Depth）：从根节点到最远叶子节点的最长路径上的节点数称为二叉树的深度。</li>
+<li><strong>高度</strong>（Height）：对于任意节点n，n的高度为从n到一片树叶的最长路径上的节点数。所有树叶的高度为0，根节点的高度就是树的高度。</li>
+</ol>
+</blockquote>
+<h4 id="1-2-满二叉树和完美二叉树"><a href="#1-2-满二叉树和完美二叉树" class="headerlink" title="1.2 满二叉树和完美二叉树"></a>1.2 满二叉树和完美二叉树</h4><p> <em><strong>满二叉树</strong></em>（Full Binary Tree）：除了叶子节点外，每一个节点都有左右两个子节点的二叉树称为满二叉树。<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://img-blog.csdnimg.cn/direct/1d8d3d0191284523b9112ff25e5d66f2.png"></p>
+<p> <em><strong>完全二叉树</strong></em>（Complete BinaryTree）：完全二叉树从根结点到倒数第二层满足完美二叉树，最后一层可以不完全填充，其叶子结点必须靠左对齐，且不能有短，最后一层最少可以只有一个。</p>
+<p><strong>这不是一个完美二叉树</strong><br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://img-blog.csdnimg.cn/direct/72823cbe5d90493b8b6b7b941a297f25.png" alt="在这里插入图片描述"></p>
+<h4 id="1-3-堆的概念"><a href="#1-3-堆的概念" class="headerlink" title="1.3 堆的概念"></a>1.3 堆的概念</h4><blockquote>
+<p><em><strong>堆</strong></em>(Heap)是计算机科学中一类特殊的数据结构的统称。堆通常是一个可以被看做一棵 <em><strong>完全二叉树的</strong></em> 数组对象。 堆是<em><strong>非线性数据结构</strong></em>，相当于一维数组，有两个直接后继。</p>
+<ul>
+<li><em><strong>大堆</strong></em>：父节点一定比子节点大，但是兄弟节点之间，不存在大小关系，堆的根节点是整个堆中最大的数</li>
+<li><em><strong>小堆</strong></em>：父节点一定比子节点小，但是兄弟节点之间，不存在大小关系，堆的根节点是整个堆中最小的数</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>堆的父亲节点的下标和子节点的下标可以进行相互运算：</strong></p>
+<ul>
+<li>Parent &#x3D;   (Chlid - 1) &#x2F; 2 </li>
+<li>Chlid &#x3D; Parent &#x2F; 2 - 1</li>
+</ul>
+</blockquote>
+<h4 id="1-4-堆的性质"><a href="#1-4-堆的性质" class="headerlink" title="1.4 堆的性质"></a>1.4 堆的性质</h4><blockquote>
+<ul>
+<li><em><strong>堆</strong></em>是<em><strong>完美二叉树</strong></em>构成。</li>
+</ul>
+</blockquote>
+<p><em><strong>大堆：</strong></em><br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://img-blog.csdnimg.cn/direct/74b1cb051c3f4418a40aa38317632631.png" alt="在这里插入图片描述"><br><em><strong>小堆：</strong></em><br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://img-blog.csdnimg.cn/direct/29b63ea006aa4054a2c1c9d070fa7907.png" alt="在这里插入图片描述"></p>
+<h4 id="1-4-堆的实现"><a href="#1-4-堆的实现" class="headerlink" title="1.4 堆的实现"></a>1.4 堆的实现</h4><h5 id="1-4-1堆的向上调整算法"><a href="#1-4-1堆的向上调整算法" class="headerlink" title="1.4.1堆的向上调整算法"></a>1.4.1堆的向上调整算法</h5><blockquote>
+<p>给定一个<em><strong>数组</strong></em>，且这个堆是一个小堆，逻辑上看作是一种完美二叉树，需要传两个参数，一个<em><strong>数组</strong></em>，一个就是插入位置的节点在数组中的<em><strong>下标</strong></em>。</p>
+<ul>
+<li>在数组的最后插入数据，开始进行向上调整算法。</li>
+<li>如果这个<strong>节点小于他的父亲节点</strong>，那就进行交换。</li>
+<li>如果这个<strong>节点大于他的父亲节点</strong>，那就结束向上调整。</li>
+</ul>
+</blockquote>
+<p>这里给一组数据进行交换</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> a[] = &#123;<span class="number">10</span>,<span class="number">15</span>,<span class="number">56</span>,<span class="number">25</span>,<span class="number">30</span>,<span class="number">70</span>,<span class="number">5</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://img-blog.csdnimg.cn/direct/7371d5cf8bae4d388dfc3a6c502795b3.png" alt="在这里插入图片描述"><br><strong>堆的向上调整算法代码实现：</strong></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Swap</span><span class="params">(HPDataType* x,HPDataType* y)</span></span><br><span class="line">&#123;</span><br><span class="line">	HPDataType tmp = *x;</span><br><span class="line">	*x = *y;</span><br><span class="line">	*y = tmp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">AdjustUp</span><span class="params">(HPDataType* a, <span class="type">int</span> child)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> Parent = (child- <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">while</span> (child&gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (a[Parent] &gt; a[child])</span><br><span class="line">		&#123;</span><br><span class="line">			Swap(&amp;a[Parent], &amp;a[child]);</span><br><span class="line">			child = Parent;</span><br><span class="line">			Parent = (child - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="1-4-1堆的向下调整算法"><a href="#1-4-1堆的向下调整算法" class="headerlink" title="1.4.1堆的向下调整算法"></a>1.4.1堆的向下调整算法</h5><blockquote>
+<p>给定一个<em><strong>数组</strong></em>，且这个堆是一个小堆，逻辑上看作是一种完美二叉树。然后我们从根节点开始向下调整，向下调整算法有一个前提：左右子树<strong>必须是一个堆</strong>，才能进行调整。然后计算出这个根节点的两个孩子节点，进行比较，哪个小，让其与根节点进行比较。这里需要传三个<em><strong>参数</strong></em>，第一个<em><strong>数组</strong></em>，第二个是数组的<em><strong>个数</strong></em>，第三个是根节点的<em><strong>下标</strong></em>。</p>
+<ul>
+<li>如果根节点<strong>大于</strong>孩子节点，那就进行交换。</li>
+<li>如果根节点<strong>小于</strong>孩子节点，就停止交换。</li>
+</ul>
+</blockquote>
+<p>这里给一组数据进行交换</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> a[]= &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://img-blog.csdnimg.cn/direct/d3c204e9fe2c466a87f991ab80f539bd.png" alt="在这里插入图片描述"><br><strong>堆的向下调整算法代码实现：</strong></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Swap</span><span class="params">(HPDataType* x,HPDataType* y)</span></span><br><span class="line">&#123;</span><br><span class="line">	HPDataType tmp = *x;</span><br><span class="line">	*x = *y;</span><br><span class="line">	*y = tmp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">AdjustDown</span><span class="params">(HPDataType* a, <span class="type">int</span> n, <span class="type">int</span> Parent)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">// 这里可以使用假设法</span></span><br><span class="line">	<span class="type">int</span> child = Parent * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> (child &lt; n)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">// 假设法这个位置需要进行判断是否是小的哪个孩子，不是则需要进行更新</span></span><br><span class="line">		<span class="keyword">if</span> (a[child] &gt; a[child + <span class="number">1</span>] &amp;&amp; child + <span class="number">1</span> &lt; n)</span><br><span class="line">		&#123;</span><br><span class="line">			child += <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (a[Parent] &gt; a[child])</span><br><span class="line">		&#123;</span><br><span class="line">			Swap(&amp;a[Parent], &amp;a[child]);</span><br><span class="line">			Parent = child;</span><br><span class="line">			child = Parent * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="1-4-1堆的接口实现"><a href="#1-4-1堆的接口实现" class="headerlink" title="1.4.1堆的接口实现"></a>1.4.1堆的接口实现</h5><blockquote>
+<ul>
+<li>堆的初始化(HeapInit)：用于初始化堆结构，为堆的后续操作做好准备。</li>
+<li>堆的销毁(HeapDestroy)：释放堆占用的资源，通常涉及删除堆中的所有元素和释放内存。</li>
+<li>堆的插入(HeapPush)：向堆中插入一个新元素，并保持堆的性质（大堆或小堆）。</li>
+<li>堆的删除(HeapPop)：删除堆顶数据，将堆顶数据和堆尾数据进行交换，并保持堆的性质（大堆或小堆）。</li>
+<li>获取堆顶数据(HeapTop)：获取堆顶数据。</li>
+<li>堆的判空(HeapEmpty)：判断堆是否是空。</li>
+<li>堆的数据个数(HeapSize)：计算堆中的数据个数。</li>
+</ul>
+</blockquote>
+<h5 id="1-4-1-1堆的初始化"><a href="#1-4-1-1堆的初始化" class="headerlink" title="1.4.1.1堆的初始化"></a>1.4.1.1堆的初始化</h5><blockquote>
+<p>对于堆的这个结构体来说，可以给_a开空间，也可以不开，一会儿进行push的时候，会进行判断，所以就可以制空，以防止成为野指针。对于size，可以给-1，这样就刚刚好和下标对上了。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> HPDataType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Heap</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	HPDataType* _a;</span><br><span class="line">	<span class="type">int</span> _size;    <span class="comment">// 堆顶的下一个位置的下标</span></span><br><span class="line">	<span class="type">int</span> _capacity;<span class="comment">// 堆的空间</span></span><br><span class="line">&#125;Heap;</span><br><span class="line"><span class="comment">// 堆的初始化</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">HeapInit</span><span class="params">(Heap* hp)</span></span><br><span class="line">&#123;</span><br><span class="line">	assert(hp);</span><br><span class="line"></span><br><span class="line">	hp-&gt;_a = <span class="literal">NULL</span>;</span><br><span class="line">	hp-&gt;_capacity = hp-&gt;_size = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="1-4-1-2堆的销毁"><a href="#1-4-1-2堆的销毁" class="headerlink" title="1.4.1.2堆的销毁"></a>1.4.1.2堆的销毁</h5><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">HeapDestroy</span><span class="params">(Heap* php)</span></span><br><span class="line">&#123;</span><br><span class="line">	assert(php);</span><br><span class="line">	<span class="built_in">free</span>(php-&gt;_a);</span><br><span class="line">	php-&gt;_a = <span class="literal">NULL</span>;</span><br><span class="line">	php-&gt;_size = php-&gt;_capacity = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="1-4-1-3堆的插入"><a href="#1-4-1-3堆的插入" class="headerlink" title="1.4.1.3堆的插入"></a>1.4.1.3堆的插入</h5><blockquote>
+<p>这里插入数据，需要插入到这个数组的最后一个位置，然后进行向上调整算法，让他始终保持这个小堆（大堆）。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">HeapPush</span><span class="params">(Heap* php,HPDataType x)</span></span><br><span class="line">&#123;</span><br><span class="line">	assert(php);</span><br><span class="line">	<span class="keyword">if</span> (php-&gt;_capacity == php-&gt;_size)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> newcapacity = php-&gt;_capacity == <span class="number">0</span> ? <span class="number">4</span> : php-&gt;_capacity * <span class="number">2</span>;</span><br><span class="line">		HPDataType* new_a = (HPDataType*)<span class="built_in">realloc</span>(php-&gt;_a,newcapacity*<span class="keyword">sizeof</span>(HPDataType));</span><br><span class="line">		<span class="keyword">if</span> (new_a == <span class="literal">NULL</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			perror(<span class="string">&quot;HeapPush()::realloc() fail!!&quot;</span>);</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		php-&gt;_capacity = newcapacity ;</span><br><span class="line">		php-&gt;_a = new_a;</span><br><span class="line">	&#125;</span><br><span class="line">	php-&gt;_a[php-&gt;_size++] = x;</span><br><span class="line">	AdjustUp(php-&gt;_a, hp-&gt;_size - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="1-4-1-4堆的删除"><a href="#1-4-1-4堆的删除" class="headerlink" title="1.4.1.4堆的删除"></a>1.4.1.4堆的删除</h5><blockquote>
+<p>需要将堆中最后一个节点于整个堆的根节点进行交换，交换完成之后，直接删除最后一个下标的位置，在进行向下调整。 </p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">HeapPop</span><span class="params">(Heap* php)</span></span><br><span class="line">&#123;</span><br><span class="line">	assert(php &amp;&amp; php-&gt;_size &gt; <span class="number">0</span>);</span><br><span class="line">	Swap(&amp;php-&gt;_a[<span class="number">0</span>],&amp;php-&gt;_a[php-&gt;_size - <span class="number">1</span>]);</span><br><span class="line">	php-&gt;_size--;</span><br><span class="line">	AdjustDown(php-&gt;_a, php-&gt;_size, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="1-4-1-4堆的判空"><a href="#1-4-1-4堆的判空" class="headerlink" title="1.4.1.4堆的判空"></a>1.4.1.4堆的判空</h5><blockquote>
+<p>因为结构体中的size就是用来记录堆的数据个数的，所以可以直接判断这个数是否等于0。</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">HeapEmpty</span><span class="params">(Heap* php)</span></span><br><span class="line">&#123;</span><br><span class="line">	assert(php);</span><br><span class="line">	 <span class="keyword">return</span> php-&gt;_size == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="1-4-1-4-获取堆的数据个数"><a href="#1-4-1-4-获取堆的数据个数" class="headerlink" title="1.4.1.4 获取堆的数据个数"></a>1.4.1.4 获取堆的数据个数</h5><blockquote>
+<p>结构体中的size就是用来计数的，所以会方便很多</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">HeapSize</span><span class="params">(Heap* php)</span></span><br><span class="line">&#123;</span><br><span class="line">	assert(php);</span><br><span class="line">	<span class="keyword">return</span> php-&gt;_size;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/Yalemandy/Yalemandy.github.io/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">Yalemandy</div><div class="post-copyright__author_desc">不负韶华，以马为梦！</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://github.com/Yalemandy/Yalemandy.github.io/2024/05/16/%E5%A0%86/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://github.com/Yalemandy/Yalemandy.github.io/2024/05/16/%E5%A0%86/')">【C语言|数据结构】堆</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-weichat.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/qrcode-alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://github.com/Yalemandy/Yalemandy.github.io/2024/05/16/%E5%A0%86/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=undefined&amp;url=https://github.com/Yalemandy/Yalemandy.github.io/2024/05/16/%E5%A0%86/&amp;pic=undefined" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://github.com/Yalemandy/Yalemandy.github.io" target="_blank">Yalemandy Blog</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/Yalemandy/Yalemandy.github.io/tags/program/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>program<span class="tagsPageCount">10</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/mafulong/mdPic@vv1/v1/20220111162923.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/Yalemandy/Yalemandy.github.io/2024/05/16/%E9%A1%BA%E5%BA%8F%E8%A1%A8/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/mafulong/mdPic@vv1/v1/20220111162923.png" onerror="onerror=null;src='/Yalemandy/Yalemandy.github.io/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【C语言|数据结构】实现顺序表</div></div></a></div><div class="next-post pull-right"><a href="/Yalemandy/Yalemandy.github.io/2024/05/16/%E6%A0%88/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://api.gumengya.com/Api/FjImg?format=image" onerror="onerror=null;src='/Yalemandy/Yalemandy.github.io/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【数据结构|C语言】栈</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/Yalemandy/Yalemandy.github.io/2024/06/04/%E4%BA%8C%E5%8F%89%E6%A0%91/" title="【C语言|数据结构】二叉树的实现"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/mafulong/mdPic@vv1/v1/20220111162923.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-06-04</div><div class="title">【C语言|数据结构】二叉树的实现</div></div></a></div><div><a href="/Yalemandy/Yalemandy.github.io/2024/05/16/%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8/" title="【C语言|数据结构】实现单向链表"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://api.gumengya.com/Api/FjImg?format=image" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-05-16</div><div class="title">【C语言|数据结构】实现单向链表</div></div></a></div><div><a href="/Yalemandy/Yalemandy.github.io/2024/05/16/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" title="【C语言|数据结构】实现双向链表"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://api.gumengya.com/Api/FjImg?format=image" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-05-16</div><div class="title">【C语言|数据结构】实现双向链表</div></div></a></div><div><a href="/Yalemandy/Yalemandy.github.io/2024/05/16/%E8%B4%AA%E5%90%83%E8%9B%87/" title="C语言实现贪吃蛇"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/mafulong/mdPic@vv1/v1/20220111162923.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-05-16</div><div class="title">C语言实现贪吃蛇</div></div></a></div><div><a href="/Yalemandy/Yalemandy.github.io/2024/05/16/%E9%80%9A%E8%AE%AF%E5%BD%95/" title="【C语言|数据结构】顺序表实现通讯录"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/mafulong/mdPic@vv1/v1/20220111162923.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-05-16</div><div class="title">【C语言|数据结构】顺序表实现通讯录</div></div></a></div><div><a href="/Yalemandy/Yalemandy.github.io/2024/05/16/%E6%A0%88/" title="【数据结构|C语言】栈"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://api.gumengya.com/Api/FjImg?format=image" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-05-16</div><div class="title">【数据结构|C语言】栈</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/04/27/64496e511b09c.jpg" onerror="this.onerror=null;this.src='/Yalemandy/Yalemandy.github.io/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description"></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/Yalemandy/Yalemandy.github.io/"><h1 class="author-info__name">Yalemandy</h1><div class="author-info__desc">不负韶华，以马为梦！</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/Yalemandy/Yalemandy.github.io" target="_blank" title="Github"><i class="fa-brands fa-github faa-data"></i></a><a class="social-icon faa-parent animated-hover" href="https://blog.csdn.net/2301_76766304?spm=1000.2115.3001.5343" target="_blank" title="CSDN"><i class="fa-sharp fa-solid fa-c faa-data"></i></a></div></div></div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(https://bu.dusays.com/2023/01/13/63c02edf44033.png) center center / 100% no-repeat"></div><div class="back face" style="background: url(https://bu.dusays.com/2023/05/13/645fa415e8694.png) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A0%86"><span class="toc-number">2.</span> <span class="toc-text">堆</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">2.0.1.</span> <span class="toc-text">1.1 二叉树的概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E6%BB%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E5%92%8C%E5%AE%8C%E7%BE%8E%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">2.0.2.</span> <span class="toc-text">1.2 满二叉树和完美二叉树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E5%A0%86%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">2.0.3.</span> <span class="toc-text">1.3 堆的概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-%E5%A0%86%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-number">2.0.4.</span> <span class="toc-text">1.4 堆的性质</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-%E5%A0%86%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.0.5.</span> <span class="toc-text">1.4 堆的实现</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-4-1%E5%A0%86%E7%9A%84%E5%90%91%E4%B8%8A%E8%B0%83%E6%95%B4%E7%AE%97%E6%B3%95"><span class="toc-number">2.0.5.1.</span> <span class="toc-text">1.4.1堆的向上调整算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-4-1%E5%A0%86%E7%9A%84%E5%90%91%E4%B8%8B%E8%B0%83%E6%95%B4%E7%AE%97%E6%B3%95"><span class="toc-number">2.0.5.2.</span> <span class="toc-text">1.4.1堆的向下调整算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-4-1%E5%A0%86%E7%9A%84%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.0.5.3.</span> <span class="toc-text">1.4.1堆的接口实现</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-4-1-1%E5%A0%86%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">2.0.5.4.</span> <span class="toc-text">1.4.1.1堆的初始化</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-4-1-2%E5%A0%86%E7%9A%84%E9%94%80%E6%AF%81"><span class="toc-number">2.0.5.5.</span> <span class="toc-text">1.4.1.2堆的销毁</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-4-1-3%E5%A0%86%E7%9A%84%E6%8F%92%E5%85%A5"><span class="toc-number">2.0.5.6.</span> <span class="toc-text">1.4.1.3堆的插入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-4-1-4%E5%A0%86%E7%9A%84%E5%88%A0%E9%99%A4"><span class="toc-number">2.0.5.7.</span> <span class="toc-text">1.4.1.4堆的删除</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-4-1-4%E5%A0%86%E7%9A%84%E5%88%A4%E7%A9%BA"><span class="toc-number">2.0.5.8.</span> <span class="toc-text">1.4.1.4堆的判空</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-4-1-4-%E8%8E%B7%E5%8F%96%E5%A0%86%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%AA%E6%95%B0"><span class="toc-number">2.0.5.9.</span> <span class="toc-text">1.4.1.4 获取堆的数据个数</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/Yalemandy/Yalemandy.github.io/2024/06/04/%E4%BA%8C%E5%8F%89%E6%A0%91/" title="【C语言|数据结构】二叉树的实现"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/mafulong/mdPic@vv1/v1/20220111162923.png" onerror="this.onerror=null;this.src='/Yalemandy/Yalemandy.github.io/img/404.jpg'" alt="【C语言|数据结构】二叉树的实现"/></a><div class="content"><a class="title" href="/Yalemandy/Yalemandy.github.io/2024/06/04/%E4%BA%8C%E5%8F%89%E6%A0%91/" title="【C语言|数据结构】二叉树的实现">【C语言|数据结构】二叉树的实现</a><time datetime="2024-06-04T10:09:23.000Z" title="发表于 2024-06-04 18:09:23">2024-06-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Yalemandy/Yalemandy.github.io/2024/05/16/%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8/" title="【C语言|数据结构】实现单向链表"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://api.gumengya.com/Api/FjImg?format=image" onerror="this.onerror=null;this.src='/Yalemandy/Yalemandy.github.io/img/404.jpg'" alt="【C语言|数据结构】实现单向链表"/></a><div class="content"><a class="title" href="/Yalemandy/Yalemandy.github.io/2024/05/16/%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8/" title="【C语言|数据结构】实现单向链表">【C语言|数据结构】实现单向链表</a><time datetime="2024-05-16T10:09:23.000Z" title="发表于 2024-05-16 18:09:23">2024-05-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Yalemandy/Yalemandy.github.io/2024/05/16/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" title="【C语言|数据结构】实现双向链表"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://api.gumengya.com/Api/FjImg?format=image" onerror="this.onerror=null;this.src='/Yalemandy/Yalemandy.github.io/img/404.jpg'" alt="【C语言|数据结构】实现双向链表"/></a><div class="content"><a class="title" href="/Yalemandy/Yalemandy.github.io/2024/05/16/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" title="【C语言|数据结构】实现双向链表">【C语言|数据结构】实现双向链表</a><time datetime="2024-05-16T10:09:23.000Z" title="发表于 2024-05-16 18:09:23">2024-05-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Yalemandy/Yalemandy.github.io/2024/05/16/%E8%B4%AA%E5%90%83%E8%9B%87/" title="C语言实现贪吃蛇"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/mafulong/mdPic@vv1/v1/20220111162923.png" onerror="this.onerror=null;this.src='/Yalemandy/Yalemandy.github.io/img/404.jpg'" alt="C语言实现贪吃蛇"/></a><div class="content"><a class="title" href="/Yalemandy/Yalemandy.github.io/2024/05/16/%E8%B4%AA%E5%90%83%E8%9B%87/" title="C语言实现贪吃蛇">C语言实现贪吃蛇</a><time datetime="2024-05-16T10:09:23.000Z" title="发表于 2024-05-16 18:09:23">2024-05-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/Yalemandy/Yalemandy.github.io/2024/05/16/%E9%80%9A%E8%AE%AF%E5%BD%95/" title="【C语言|数据结构】顺序表实现通讯录"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/mafulong/mdPic@vv1/v1/20220111162923.png" onerror="this.onerror=null;this.src='/Yalemandy/Yalemandy.github.io/img/404.jpg'" alt="【C语言|数据结构】顺序表实现通讯录"/></a><div class="content"><a class="title" href="/Yalemandy/Yalemandy.github.io/2024/05/16/%E9%80%9A%E8%AE%AF%E5%BD%95/" title="【C语言|数据结构】顺序表实现通讯录">【C语言|数据结构】顺序表实现通讯录</a><time datetime="2024-05-16T10:09:23.000Z" title="发表于 2024-05-16 18:09:23">2024-05-16</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2024 By <a class="footer-bar-link" href="/Yalemandy/Yalemandy.github.io/" title="Yalemandy" target="_blank">Yalemandy</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/Yalemandy/Yalemandy.github.io/archives/" title="archive"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/Yalemandy/Yalemandy.github.io/tags/" title="tag"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/Yalemandy/Yalemandy.github.io/categories/" title="category"><div class="headline">分类</div><div class="length-num">1</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" href="/Yalemandy/Yalemandy.github.io/www.yxyy04.cn" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/fcircle/"><i class="anzhiyufont anzhiyu-icon-artstation faa-tada" style="font-size: 0.9em;"></i><span> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/air-conditioner/"><i class="anzhiyufont anzhiyu-icon-fan faa-tada" style="font-size: 0.9em;"></i><span> 小空调</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/Yalemandy/Yalemandy.github.io/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/Yalemandy/Yalemandy.github.io/tags/program/" style="font-size: 0.88rem;">program<sup>10</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/Yalemandy/Yalemandy.github.io/js/utils.js"></script><script src="/Yalemandy/Yalemandy.github.io/js/main.js"></script><script src="/Yalemandy/Yalemandy.github.io/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2020 By 安知鱼 V1.6.12",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 Yalemandy 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="programming"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/Yalemandy/Yalemandy.github.io/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
