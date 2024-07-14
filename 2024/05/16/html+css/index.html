@@ -1,0 +1,1009 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><!-- hexo injector head_begin start --><script>
+                    (() => {
+                        const sw = navigator.serviceWorker
+                        const error = () => console.error('Service Worker 注册失败！可能是由于您的浏览器不支持该功能！')
+                        if (!sw?.register('/sw.js')
+                            
+                            ?.catch(error)
+                            ) error()
+                    })()
+                </script><!-- hexo injector head_begin end --><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>HTML+CSS基础知识 | Yalemandy Blog</title><meta name="keywords" content="前端"><meta name="author" content="Yalemandy"><meta name="copyright" content="Yalemandy"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="HTML+CSS基础知识"><meta name="application-name" content="HTML+CSS基础知识"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="HTML+CSS基础知识"><meta property="og:url" content="https://yalemandy.github.io/2024/05/16/html+css/index.html"><meta property="og:site_name" content="Yalemandy Blog"><meta property="og:description" content="HTML41.课前简介 什么是前端开发，前端开发能做什么   前端开发能做各种网页，小程序，小游戏，可视化系统，以及现在可以做后端的服务器。   学习的路线  基础部分为HTML +CSS+JavaScript，三个最基础的技术，只有将这些知识扎实才能为后续的知识搭建好基础。   如何学习  课时认"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://api.gumengya.com/Api/FjImg?format=image&amp;_t=14"><meta property="article:author" content="Yalemandy"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://api.gumengya.com/Api/FjImg?format=image&amp;_t=14"><meta name="description" content="HTML41.课前简介 什么是前端开发，前端开发能做什么   前端开发能做各种网页，小程序，小游戏，可视化系统，以及现在可以做后端的服务器。   学习的路线  基础部分为HTML +CSS+JavaScript，三个最基础的技术，只有将这些知识扎实才能为后续的知识搭建好基础。   如何学习  课时认"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="https://yalemandy.github.io/2024/05/16/html+css/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="manifest" href="/manifest.json"/><meta name="msapplication-TileColor" content="var(--anzhiyu-main)"/><link rel="mask-icon" href="/img/siteicon/apple-icon-180.png" color="#5bbad5"/><link rel="apple-touch-icon" sizes="180x180" href="/img/siteicon/apple-icon-180.png"/><link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/siteicon/apple-icon-180.png"/><link rel="icon" type="image/png" sizes="32x32" href="/img/siteicon/32.png"/><link rel="icon" type="image/png" sizes="16x16" href="/img/siteicon/16.png"/><link rel="bookmark" href="/img/siteicon/apple-icon-180.png"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2048-2732.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2732-2048.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1668-2388.jpg" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2388-1668.jpg" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1536-2048.jpg" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2048-1536.jpg" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1668-2224.jpg" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2224-1668.jpg" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1620-2160.jpg" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2160-1620.jpg" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1290-2796.jpg" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2796-1290.jpg" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1179-2556.jpg" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2556-1179.jpg" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1284-2778.jpg" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2778-1284.jpg" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1170-2532.jpg" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2532-1170.jpg" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1125-2436.jpg" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2436-1125.jpg" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1242-2688.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2688-1242.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-828-1792.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1792-828.jpg" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1242-2208.jpg" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-2208-1242.jpg" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-750-1334.jpg" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1334-750.jpg" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-640-1136.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/><link rel="apple-touch-startup-image" href="/img/siteicon/apple-splash-1136-640.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@1.0.17/lib/assets/font-awesome-animation.min.css"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: {"apiurl":"https://friends.anheyu.com/"},
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":["🤖️ 数码科技爱好者","🔍 分享与热心帮助","🏠 智能家居小能手","🔨 设计开发一条龙","🤝 专修交互与设计","🏃 脚踏实地行动派","🧱 团队小组发动机","💢 壮汉人狠话不多"]},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: Yalemandy","link":"链接: ","source":"来源: Yalemandy Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: 'Yalemandy Blog',
+  title: 'HTML+CSS基础知识',
+  postAI: '',
+  pageFillDescription: 'HTML4, 1.课前简介, 1.1 前序知识, 1.2计算机基础知识, 1.3. Cx2FS架构与Bx2FS架构, 1.4浏览器相关知识, 1.5 网页相关概念, 2.HTML基础, 2.1 HTML概念, 2.2 准备工作, 2.3 HTML标签, 2.4 HTML 标签属性, 2.5 HTML 的基本结构, 2.6 常用的代码编辑器, 2.7 HTML注释, 2.8 文档声明, 3. 常用标签, 3.1 排版标签, 3.2 标签的语义化, 3.3 块级元素和行内元素, 3.4 常用的文本标签, 3.5 不常用的文本标签, 3.6图片标签, 3.7超链接, 3.8 列表, 3.9 表格, 3.10 常用标签补充, 4. 表单, 4.1 表单基本结构及概念, 4.2表单的常用控件（重点掌握）, 4.3form 小结, 4.4框架标签, 4.5HTML 实体, 4.6HTML全局属性, 4.7meta信息, 5.HTML小结, HTML5, HTML5 简介, 新增布局标签, 新增列表标签, 新增注音标签, 新增表单标签, 新增多媒体标签课前简介什么是前端开发前端开发能做什么前端开发能做各种网页小程序小游戏可视化系统以及现在可以做后端的服务器学习的路线基础部分为三个最基础的技术只有将这些知识扎实才能为后续的知识搭建好基础如何学习课时认真听讲自己知识点梳理笔记练习前序知识计算机的二位祖师爷图灵破译了二战时期德国的英格玛时至今日历史学家统计图灵让二战提前结束你两年如今设置图灵奖作为计算机的最高的奖项图灵机可以让机器让机器随着人的指令进行运算提前将指令录入机器让机器按照指令进行运算图灵是如今的人工智能之父冯洛伊曼制定了现代的计算机的标准冯洛伊曼体系结构计算机基础知识计算机俗称电脑是现代一种用于高速计算的电子计算机器可以进行数值计算逻辑计算还具有存储记忆功能计算机由硬件软件成硬件看得见摸得着的物理部件软件可以指挥硬件工作的指令软件的分类系统软件等应用软件微信王者荣耀等架构与架构软件分为两大类分别为和架构客户端浏览器服务器服务器为软件提供数据的设备在背后默默的付出架构特点需要安装偶尔更新不跨平台开发更具针对性架构特点无需安装无需更新可跨平台开发更具通用性服务器与客户端之间的关系服务器就是一个中转站存储软件的信息提供服务摸摸的支持软件客户端就是面向用户孰好孰坏每一个架构都有自己的特点和优势不同的特点和优势对应对应的使用方式有差别但是不能说谁好谁坏我们学习的都是哪个前端工程师主要负责编写架构中的网页呈现界面实现交互大前端时代我们可以用前端的技术栈做出一个架构的应用甚至搭建一个服务器等基于的后端框架实现服务器实现数据可视化浏览器相关知识简介浏览器是网页运行的平台常见的浏览器有谷歌火狐欧朋等以上这些是常用的五大浏览器浏览器的市场份额当前浏览器的市场份额浏览器内核内核是浏览器的核心用户处理浏览器所得到的各种资源浏览器的内核相当于是人类的大脑国内的各种浏览器都是用都国外的浏览器内核只不过在这些内核的基础上添加了很多自己的东西如浏览器使用的就是和的内核浏览器使用的内核也是如此网页相关概念网址我们在浏览器中输入的地址网页通过网址到的网站的每一个页面网站多个网页构成一个网站网页的标准网页的标准就是要有结构表现和行为基础概念全称超文本标记语言超文本暂且简单理解为超级的文本和普通文本比内容更丰富包含各种文本所没有的图片样式等等标记文本要变成超文本就需要用到各种标记符号文本想要变成超文本就需要各种标记浏览器通过解析标记就能识别出我们具体所要展示的内容如标题语言每一个标记的写法读音使用规则组成了一个标记语言相关国际组织了解知道就行全称国际互联网工程任务组成立于年底是一个权威的互联网技术标准化组织主要负责互联网相关技术规范的研发和制定当前绝大多数国际互联网技术标准均出自官网全称万维网联盟创建于年是目前技术领域最具影响力的技术标准机构共计发布了多项技术标准和实施指南对互联网技术的发展和应用起到了基础性和根本性的支撑作用官网全称网页超文本应用技术工作小组成立于年是一个以推动网络标准为目的而成立的组织由基金会苹果等这些浏览器厂商组成官网准备工作安装浏览器安装一个编译器或者都行使用记事本写一个最简单的网页标签标签又称元素是的基本组成单位标签分为双标签与单标签绝大多数都是双标签双标签双标签示例标签内容单标签示例输入框标签名不区分大小写但推荐小写因为小写更规范标签之间的关系并列关系嵌套关系可以使用键进行缩进标签属性用于给标签提供附加信息可以写在起始标签或单标签中形式如下例如注意点不同的标签有不同的属性也有一些通用属性在任何标签内都能写后面会详细总结属性名属性值不能乱写都是规定好的属性名属性值都不区分大小写但推荐小写双引号也可以写成单引号甚至不写都行但还是推荐写双引号标签中不要出现同名属性否则后写的会失效例如的基本结构基本结构图代码网页的标签在里面写内容基本结构想要呈现在网页中的内容写在标签中标签中的内容不会出现在网页中标签中的标签可以指定网页的标题常用的代码编辑器注释简介注释的内容会被浏览器所忽略不会呈现到页面中但源代码中依然可见作用对代码进行解释和说明注释就是对自己代码的解释和解释和说明只能让开发人员开看到浏览器不会解析出来写法下面的文字只能滚动一次滚动效果下面的文字可以无限滚动你好注意注释不可以嵌套以下这么写是错的反例我是一段注释我是一段注释一般注释的快捷键文档声明简介作用就是告诉浏览器你写的是哪个版本的代码一般来说现在有和两个常用的版本写法或或注意文档声明必须在网页的第一行且在标签的外侧这段也就是一个的标准的结构这里就是文档声明我是注释我只能被自己看到无法被浏览器解析到你好你好好好爱护常用标签排版标签标签名称标签含义标题段落没有任何含义用于整体布局生活中的包装袋最好写一个能适当多写不能互相嵌套例如标签中最好不要写标签了标签很特殊它里面不能有标签暂时先这样记后面会说规律一级标题二级标题三级标题四级标题五级标题我是一个段落我是一个段落我是一个段落标签的语义化概念用特定的标签去表达特定的含义原则标签的默认效果不重要后期可以通过随便控制效果语义最重要举例对于标签效果是文字很大不重要语义是网页主要内容很重要优势代码结构清晰可读性强有利于搜索引擎优化方便设备解析如屏幕阅读器盲人阅读器等块级元素和行内元素块级元素独占一行排版标签都是块级元素行内元素不独占一行目前只学了稍后会学习更多使用规则块级元素中能写行内元素和块级元素简单记块级元素中几乎什么都能写行内元素中能写行内元素但不能写块级元素一些特殊的规则不能互相嵌套中不要写块级元素常用的文本标签用于包裹词汇短语等通常写在排版标签里面排版标签更宏观大段的文字文本标签更微观词汇短语文本标签通常都是行内元素标签名标签语义单双标签要着重阅读的内容双十分重要的内容语气比要强双没有语义用于包裹短语的通用容器双不常用的文本标签这些不常用的文本标签编码时不用过于纠结很少用用的时候在找与是块级元素其他的文本标签都是行内元素有些语义感不强的标签我们很少使用例如标签太多了记住那些重要的语义感强的标签即可截止目前有这些图片标签标签名标签名常用属性单双标签图片见下单的常用属性图片路径又称图片地址图片的具体位置图片描述图片因为某种原因展示不出来了就默认展示描述图片宽度单位是像素例如或图片高度单位是像素例如或总结像素是一种单位学到时我们会详细讲解尽量不同时修改图片的宽和高可能会造成比例失调暂且认为是行内元素学到时会认识一个新的元素分类目前咱们只知道块行内属性的作用搜索引擎通过属性得知图片的内容最主要的作用当图片无法展示时候有些浏览器会呈现属性的值盲人阅读器会朗读属性的值路径相对路径以当前位置作为参考点去建立路径相对路径中的可以省略不写相对路径依赖的是当前位置后期若调整了文件位置那么文件中的路径也要修改绝对路径以根位置作为参考点去建立路径本地绝对路径奥特曼很少使用网络绝对路径使用本地绝对路径一旦更换设备路径处理起来比较麻烦所以很少使用使用网络绝对路径确实方便但要注意若服务器开启了防盗链会造成图片引入失败常见的图片格式超链接主要作用从当前页面进行跳转可以实现跳转到指定页面跳转到指定文件也可触发下载跳转到锚点位置唤起指定应用标签介绍标签名标签名常用属性单双标签超链接见下双指定要跳转到的具体目标控制跳转时如何打开页面常用值如下在本窗口打开在新窗口打开元素的唯一标识可用于设置锚点元素的名字写在标签中也能设置锚点跳转到页面跳转其他网页去京东跳转本地网页排版标签去看排版标签代码中的多个空格多个回车都会被浏览器解析成一个空格虽然是行内元素但元素可以包裹除它自身外的任何元素跳转到文件跳转到页面不常用的文本标签不常用的文本标签跳转到文件支持跳转到图片视频等浏览器支持的文件格式路径跳转到图片对于浏览器不能直接打开的文件就会触发下载内部资源内部资源强制触发下载小电影电影片段下载电影注意若浏览器无法打开文件则会引导用户下载注意若想强制触发下载请使用属性属性值即为下载文件的名称跳转锚点锚点就是网页中的一个标记的一个地点使用的方式设置锚点具有属性的标签是超链接具有属性的标签是锚点和都是区分大小写的且最好别是数字开头第一种方式标签配合属性第二种方式其他标签配合属性我是一个位置跳转锚点跳转到锚点去锚点跳到本页面顶部回到顶部超链接的锚点的跳转跳到三张图的位置我是第一张图路径我是第二张图路径我是第三张图路径回到顶部我是第四张图路径唤起指定的应用通过标签可以唤起设备应用程序唤起设备拨号电话联系唤起设备发送有件邮件联系唤起设备发送短信发送短信列表有序列表概念有顺序或者侧重顺序的列表要把大象放冰箱总共分几步把冰箱门打开把大象放进去把冰箱门关上无序列表概念无顺序或不侧重顺序的列表我想去的几个城市成都上海西安武汉自定义列表概念所谓自定义列表就是一个包含术语名称以及术语描述的列表一个就是一个自定义列表一个就是一个术语名称一个就是术语描述可以有多个如何高效的学习做好笔记笔记是我们以后复习的一个抓手笔记可以是电子版也可以是纸质版多加练习只有敲出来的代码才是自己的别怕出错错很正常改正后并记住就是经验列表相关的注意事项有序列表和无序列表包裹的一定是如果是其他的标签就没有效果不能单独的写列表项标签最好写在或中不要单独使用自定义列表里面一个术语可以有多个术语描述列表是可以嵌套使用的列表嵌套概念列表中的某项内容又包含一个列表注意嵌套时请务必把解构写完整我想去的几个城市成都上海外滩杜莎夫人蜡像馆东方明珠迪士尼乐园西安武汉表格基本结构表格标题表格头部表格主体表格脚注四部分组成表格涉及到的标签表格表格标题表格头部表格主体表格注脚每一行每一个单元格备注表格头部中用表格主体表格脚注中用表格表格标题我是表格的标题表格头部姓名学号年龄表格主体张三张三张三表格脚注脚注脚注脚注表格属性就是让表格有一个一像素的边框如果只对最外层的边框起作用就是设置表格单元格之间的间距为多少个像素如果为的话就有合并单元格的效果设置表格的最小高度和宽度脚注和头部和脚注的高度是不变的我是表格的标题设置表格头部的高度水平方向上的对齐方式垂直方向上的对齐方式设置单元格的宽度同列所有单元格全都受影响设置单元格的高度同行所有单元格全都受影响设置单元格的水平对齐方式设置单元格的垂直对齐方式指定要跨的行数指定要跨的列数姓名学号年龄设置表格头部的高度受到高度的影响如果整体的高度不足的最低的高度那么设置出来是没有效果的水平方向上的对齐方式垂直方向上的对齐方式张三张三张三设置表格头部的高度受到高度的影响如果整体的高度不足的最低的高度那么设置出来是没有效果的水平方向上的对齐方式垂直方向上的对齐方式月薪跨行跨列指定要跨的行数指定要跨的列数跨行和跨列班级课程表常用标签补充表单表单基本结构及概念概念表单就是一个包含交互的区域用于收集用户提供的信息实例代码去百度搜索表单的常用控件重点掌握为什么要有隐藏域用户都看不到要这个隐藏域干嘛很多时候在注册的页面很多技术人员都使用脚本来批量注册账号用来实现一些非法的目的通常这些输入的信息都是写脚本的人员用看了以后写的脚本但是由于隐藏域是用户看不到的这些技术人员就没办法知道隐藏域具体发送了哪些信息就没办法批量的注册类似数据的名称默认的值文本输入框账号密码输入框密码单选框性别男女多选框爱好抽烟喝酒烫头隐藏域文本域详细地址我是文本域下拉框家庭住址北京北京上海上海广州广州深圳深圳两种重置的方法点我重置点我重置这种不写任何类型的按钮就相当于是重置的按钮去百度搜索这种就是普通的按钮普通按钮小结框架标签实体在中我们可以用一种特殊的形式的内容来表示某个符号这种特殊形式的内容就是实体比如小于号用于定义标签的开始如果我们希望浏览器正确地显示这些字符我们必须在源码中插入字符实体字符实体由三部分组成一个和一个实体名称或者一个和一个实体编号最后加上一个分号常见的一些实体全局属性常用的全局属性及意义完整的全局属性及意义信息小结简介什么是是新一代的标准年月由万维网联盟完成标准制定官网地址提供提供在狭义上是指新一代的标准在广义上是指整个前端优势针对新增了很多可操作的接口新增了一些语义化标签全局属性新增了多媒体标签可以很好的替代更加侧重语义化对于更友好可移植性好可以大量应用在移动设备上兼容性支持等主流浏览器浏览器必须是及以上版本才支持且仅支持部分新特性新增布局标签新增布局标签新增状态标签标签语义定义已知范围内的标量测量也被称为尺度双标签例如电量磁盘用量等说白了就是手机电量的显示就是规定正常的值是多少如果是处于这个正常的值就是绿色大于或者小于这个值都是警告的状态最大值最小值是多少当前的值标签语义显示某个任务完成的进度的指示器一般用于表示进度条双标签例如工作完成进度等新增列表标签用于搜索框的关键字提示周冬雨周冬雨周杰伦周杰伦温兆伦温兆伦马冬梅马冬梅新增注音标签给小朋友写网站要用喜欢编程并且喜欢小孩的可以学包裹需要注音的文字写注音标签写在的里面魑魅魍魉新增表单标签表单控件新增属性提示用户输入请输入账号请输入描述信息用户必须输入男女自动获取焦点提交新增属性值新增多媒体标签视频标签标签用来定义视频它是双标签视频静音了才能自动播放主要是为了防止一刀音频标签标签用来定义音频它是双标签',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: true,
+  isToc: true,
+  postUpdate: '2024-07-14 18:51:50',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><!-- hexo injector head_end start --><script defer src="/sw-dom.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="/./img/favicon1.ico"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" href="/www.yxyy04.cn" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" href="/793335974.github.io" title="wjt-blog"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://c.wallhere.com/photos/fd/08/3840x2160_px_black_background_Patrick_Star_Simple_Simple_Background_SpongeBob_SquarePants-1313473.jpg!d" alt="wjt-blog"/><span class="back-menu-item-text">wjt-blog</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">Yalemandy Blog</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a><div id="he-plugin-simple"></div><script>var WIDGET = {
+  "CONFIG": {
+    "modules": "0124",
+    "background": "2",
+    "tmpColor": "FFFFFF",
+    "tmpSize": "16",
+    "cityColor": "FFFFFF",
+    "citySize": "16",
+    "aqiColor": "E8D87B",
+    "aqiSize": "16",
+    "weatherIconSize": "24",
+    "alertIconSize": "18",
+    "padding": "10px 10px 10px 10px",
+    "shadow": "0",
+    "language": "auto",
+    "borderRadius": "20",
+    "fixed": "true",
+    "vertical": "top",
+    "horizontal": "left",
+    "left": "20",
+    "top": "7.1",
+    "key": "df245676fb434a0691ead1c63341cd94"
+  }
+}
+</script><link rel="stylesheet" href="https://widget.qweather.net/simple/static/css/he-simple.css?v=1.4.0"/><script src="https://widget.qweather.net/simple/static/js/he-simple.js?v=1.4.0"></script></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/fcircle/"><i class="anzhiyufont anzhiyu-icon-artstation faa-tada" style="font-size: 0.9em;"></i><span> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/air-conditioner/"><i class="anzhiyufont anzhiyu-icon-fan faa-tada" style="font-size: 0.9em;"></i><span> 小空调</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="/./img/wechatpay.png" target="_blank"><img class="post-qr-code-img" alt="微信" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/./img/wechatpay.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/./img/alipay.png" target="_blank"><img class="post-qr-code-img" alt="支付宝" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/./img/alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Es6/" style="font-size: 1.05rem;">Es6<sup>1</sup></a><a href="/tags/Git/" style="font-size: 1.05rem;">Git<sup>1</sup></a><a href="/tags/Node-Js/" style="font-size: 1.05rem;">Node.Js<sup>1</sup></a><a href="/tags/vue/" style="font-size: 1.05rem;">vue<sup>1</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.05rem;">前端<sup>5</sup></a><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.05rem;">数据结构<sup>9</sup></a><a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 1.05rem;">项目<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">19</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url">前端</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>前端</span></a></span></div></div><h1 class="post-title" itemprop="name headline">HTML+CSS基础知识</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2024-05-16T10:09:23.000Z" title="发表于 2024-05-16 18:09:23">2024-05-16</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2024-07-14T10:51:50.509Z" title="更新于 2024-07-14 18:51:50">2024-07-14</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="HTML+CSS基础知识"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为襄阳"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>襄阳</span></div></div></div><article class="post-content" id="article-container" itemscope itemtype="https://yalemandy.github.io/2024/05/16/html+css/"><header><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url">前端</a><a href="/tags/%E5%89%8D%E7%AB%AF/" tabindex="-1" itemprop="url">前端</a><h1 id="CrawlerTitle" itemprop="name headline">HTML+CSS基础知识</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">Yalemandy</span><time itemprop="dateCreated datePublished" datetime="2024-05-16T10:09:23.000Z" title="发表于 2024-05-16 18:09:23">2024-05-16</time><time itemprop="dateCreated datePublished" datetime="2024-07-14T10:51:50.509Z" title="更新于 2024-07-14 18:51:50">2024-07-14</time></header><h1 id="HTML4"><a href="#HTML4" class="headerlink" title="HTML4"></a>HTML4</h1><h2 id="1-课前简介"><a href="#1-课前简介" class="headerlink" title="1.课前简介"></a>1.课前简介</h2><ul>
+<li>什么是前端开发，前端开发能做什么</li>
+</ul>
+<blockquote>
+<p>前端开发能做各种网页，小程序，小游戏，可视化系统，以及现在可以做后端的服务器。</p>
+</blockquote>
+<ul>
+<li><p>学习的路线</p>
+<blockquote>
+<p>基础部分为HTML +CSS+JavaScript，三个最基础的技术，只有将这些知识扎实才能为后续的知识搭建好基础。</p>
+</blockquote>
+</li>
+<li><p>如何学习</p>
+<blockquote>
+<p>课时认真听讲+自己知识点梳理+笔记+练习</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="1-1-前序知识"><a href="#1-1-前序知识" class="headerlink" title="1.1 前序知识"></a>1.1 前序知识</h3><ul>
+<li>计算机的二位祖师爷</li>
+</ul>
+<blockquote>
+<p><strong>图灵</strong>，破译了二战时期德国的英格玛，时至今日，历史学家统计，图灵让二战提前结束你两年，如今设置图灵奖，作为计算机的最高的奖项。图灵机可以让机器让机器随着人的指令进行运算，（提前将指令录入机器，让机器按照指令进行运算，图灵是如今的人工智能之父。</p>
+</blockquote>
+<blockquote>
+<p><strong>冯洛伊曼</strong>制定了现代的计算机的标准,冯洛伊曼体系结构。</p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/flym.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="图灵冯洛伊曼"></a></p>
+</blockquote>
+<h3 id="1-2计算机基础知识"><a href="#1-2计算机基础知识" class="headerlink" title="1.2计算机基础知识"></a>1.2计算机基础知识</h3><blockquote>
+<ol>
+<li>计算机俗称电脑，是现代一种用于高速计算的电子计算机器，可以进行数值计算、逻辑计算，还 具有存储记忆功能。</li>
+<li>计算机由 硬件 + 软件 成： 硬件：看得见摸得着的物理部件。 软件：可以指挥硬件工作的指令。</li>
+<li>软件的分类： 1. 系统软件：Windows、Linux、Android、Harmony 等。 2. 应用软件：微信、QQ、王者荣耀、PhotoShop 等。</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/jsjjic.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="计算机基础知识"></a></p>
+</blockquote>
+<h3 id="1-3-C-S架构与B-S架构"><a href="#1-3-C-S架构与B-S架构" class="headerlink" title="1.3. C&#x2F;S架构与B&#x2F;S架构"></a>1.3. C&#x2F;S架构与B&#x2F;S架构</h3><ul>
+<li><p>软件分为两大类，分别为B&#x2F;S 和 C&#x2F;S架构</p>
+<blockquote>
+<p>C &#x3D;&gt; client（客户端）</p>
+<p>B &#x3D;&gt; browser（浏览器）</p>
+<p>S &#x3D;&gt; server（服务器）。 服务器 ：为软件提供数据的设备（在背后默默的付出）。</p>
+</blockquote>
+<blockquote>
+<p><strong>C&#x2F;S架构，</strong>特点：需要安装、偶尔更新、不跨平台、开发更具针对性。</p>
+<p><strong>B&#x2F;S架构，</strong>特点：无需安装、无需更新、可跨平台、开发更具通用性。</p>
+</blockquote>
+</li>
+<li><p>服务器与客户端之间的关系</p>
+<blockquote>
+<p>服务器就是一个中转站，存储软件的信息，提供服务，摸摸的支持软件。客户端就是面向用户。</p>
+</blockquote>
+</li>
+<li><p>孰好孰坏？</p>
+<blockquote>
+<p>每一个架构都有自己的特点和优势，不同的特点和优势对应对应的使用方式，有差别，但是不能说谁好谁坏</p>
+</blockquote>
+</li>
+<li><p>我们学习的都是哪个？</p>
+<blockquote>
+<p><strong>前端工程师，主要负责编写 B&#x2F;S架构中的网页（呈现界面、实现交互）。</strong></p>
+<p>大前端时代，我们可以用前端的技术栈，做出一个C&#x2F;S架构的应用、甚至搭建一个服 务器😎。(node.js express等基于js的后端框架实现服务器，echarts实现数据可视化)</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="1-4浏览器相关知识"><a href="#1-4浏览器相关知识" class="headerlink" title="1.4浏览器相关知识"></a>1.4浏览器相关知识</h3><ul>
+<li>简介</li>
+</ul>
+<blockquote>
+<p>浏览器是网页运行的平台，常见的浏览器有： 谷歌(Chrome) 、 Safari 、 IE 、 火狐(Firefox) 、 欧 朋(Opera) 等，以上这些是常用的五大浏览器。</p>
+</blockquote>
+<ul>
+<li><p>浏览器的市场份额</p>
+<blockquote>
+<p>当前浏览器的市场份额</p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/llq.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="浏览器"></a></p>
+</blockquote>
+</li>
+<li><p>浏览器内核</p>
+<p>内核是浏览器的<strong>核心</strong>，用户处理浏览器所得到的各种<strong>资源</strong>，浏览器的内核相当于是人类的大脑。</p>
+<blockquote>
+<p>国内的各种浏览器都是用都国外的浏览器内核，只不过在这些内核的基础上添加了很多自己的东西，如QQ浏览器使用的就是chrome和IE的内核，360浏览器使用的内核也是如此。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="1-5-网页相关概念"><a href="#1-5-网页相关概念" class="headerlink" title="1.5 网页相关概念"></a>1.5 网页相关概念</h3><ol>
+<li><p>网址，<a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> 我们在浏览器中输入的地址。</p>
+</li>
+<li><p>网页 通过网址到的网站的每一个页面</p>
+</li>
+<li><p>网站 多个网页构成一个网站</p>
+</li>
+<li><p>网页的标准</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">PLAINTEXT</span><br><span class="line">网页的标准就是要有结构  表现和 行为</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/wyjg.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="网页标准"></a></p>
+</li>
+</ol>
+<h2 id="2-HTML基础"><a href="#2-HTML基础" class="headerlink" title="2.HTML基础"></a>2.HTML基础</h2><h3 id="2-1-HTML概念"><a href="#2-1-HTML概念" class="headerlink" title="2.1 HTML概念"></a>2.1 HTML概念</h3><blockquote>
+<p>全称：HyperText Markup Language（<strong>超文本标记语言</strong>）。</p>
+</blockquote>
+<blockquote>
+<p>超文本：暂且简单理解为 “超级的文本”，和普通文本比，内容更丰富</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">PLAINTEXT</span><br><span class="line">包含各种文本所没有的图片样式等等</span><br></pre></td></tr></table></figure>
+
+<p>标 记：文本要变成超文本，就需要用到各种标记符号。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">JS</span><br><span class="line">文本想要变成超文本就需要各种标记，浏览器通过解析标记就能识别出我们具体所要展示的内容如</span><br><span class="line">&lt;h1&gt;标题&lt;h1&gt;</span><br></pre></td></tr></table></figure>
+
+<p>语 言：每一个标记的写法、读音、使用规则，组成了一个标记语言。</p>
+</blockquote>
+<ul>
+<li><p>相关国际组织（了解,知道W3C就行）</p>
+<blockquote>
+<ul>
+<li>IETF 全称：Internet Engineering Task Force（国际互联网工程任务组）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">JS</span><br><span class="line">成立于1985年底，是一个权威 的互联网技术标准化组织，主要负责互联网相关技术规范的研发和制定，当前绝大多数国际互联网 技术标准均出自IETF。官网：https://www.ietf.org 2</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>. W3C 全称：World Wide Web Consortium（万维网联盟）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">JS</span><br><span class="line">，创建于1994年，是目前Web技术领域，最具影 响力的技术标准机构。共计发布了200多项技术标准和实施指南，对互联网技术的发展和应用起到 了基础性和根本性的支撑作用，官网：https://www.w3.org</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>WHATWF 全称：Web Hypertext Application Technology Working Group（网页超文本应用技术工作小组）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">JS</span><br><span class="line">成立 于2004年，是一个以推动网络HTML 5 标准为目的而成立的组织。由Opera、Mozilla基金会、苹果， 等这些浏览器厂商组成。官网：https://whatwg.org/</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+<h3 id="2-2-准备工作"><a href="#2-2-准备工作" class="headerlink" title="2.2 准备工作"></a>2.2 准备工作</h3><ul>
+<li>安装chome浏览器</li>
+<li>安装一个编译器，Hbuider 或者 VScode都行</li>
+<li>使用记事本写一个最简单的网页</li>
+</ul>
+<h3 id="2-3-HTML标签"><a href="#2-3-HTML标签" class="headerlink" title="2.3 HTML标签"></a>2.3 HTML标签</h3><ol>
+<li><strong>标签</strong> 又称 <strong>元素</strong>，是HTML的基本组成单位。</li>
+<li>标签分为：<strong>双标签</strong> 与 <strong>单标签</strong> （绝大多数都是双标签）。</li>
+</ol>
+<blockquote>
+<p>双标签</p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/sbq.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="双标签"></a></p>
+<p>双标签示例</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line">&lt;h1&gt;标签内容&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/dbq.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="单标签"></a></p>
+<p>单标签示例(输入框)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">PLAINTEXT</span><br><span class="line">&lt;input/&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ol>
+<li>标签名不区分大小写，但推荐<strong>小写</strong>，因为小写更规范。</li>
+<li>标签之间的关系：<strong>并列关系</strong>、<strong>嵌套关系</strong>，可以使用 tab 键进行缩进：</li>
+</ol>
+<h3 id="2-4-HTML-标签属性"><a href="#2-4-HTML-标签属性" class="headerlink" title="2.4 HTML 标签属性"></a>2.4 HTML 标签属性</h3><ol>
+<li><p>用于给标签提供 附加信息。</p>
+</li>
+<li><p>可以写在：起始标签 或 单标签中，形式如下：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/sx.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="标签及标签的属性"></a></p>
+<p>例如</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line">&lt;input disabled type=&quot;text&quot;&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>注意点</p>
+<blockquote>
+<ol>
+<li>不同的标签，有不同的属性；也有一些通用属性（在任何标签内都能写，后面会详细 总结）。</li>
+<li>属性名、属性值不能乱写，都是W3C规定好的。</li>
+<li>属性名、属性值，都不区分大小写，但推荐小写。</li>
+<li>. 双引号，也可以写成单引号，甚至不写都行，但还是推荐写双引号。</li>
+<li>标签中不要出现同名属性，否则后写的会失效，例如：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line">&lt;input type=&quot;text&quot; type=&quot;password&quot;&gt;</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ol>
+<h3 id="2-5-HTML-的基本结构"><a href="#2-5-HTML-的基本结构" class="headerlink" title="2.5 HTML 的基本结构"></a>2.5 HTML 的基本结构</h3><blockquote>
+<ul>
+<li><p>基本结构图</p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/jg.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="基本结构图"></a></p>
+<p>代码</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">		&lt;title&gt;网页的标签&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">        在body 里面写内容</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>基本结构</p>
+<ol>
+<li>想要呈现在网页中的内容写在 body 标签中。</li>
+<li>head 标签中的内容不会出现在网页中。</li>
+<li>head 标签中的 title 标签可以指定网页的标题。</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<h3 id="2-6-常用的代码编辑器"><a href="#2-6-常用的代码编辑器" class="headerlink" title="2.6 常用的代码编辑器"></a>2.6 常用的代码编辑器</h3><h3 id="2-7-HTML注释"><a href="#2-7-HTML注释" class="headerlink" title="2.7 HTML注释"></a>2.7 HTML注释</h3><ul>
+<li>简介</li>
+</ul>
+<blockquote>
+<p>注释的内容会被浏览器所忽略，不会呈现到页面中，但源代码中依然可见。</p>
+<p>作用：对代码进行解释和说明。注释就是对自己代码的解释和解释和说明，只能让开发人员开看到，浏览器不会解析出来。</p>
+</blockquote>
+<ul>
+<li><p>写法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line">&lt;!-- 下面的文字只能滚动一次 --&gt;</span><br><span class="line">&lt;marquee loop=&quot;1&quot;&gt;滚动效果&lt;/marquee&gt;</span><br><span class="line">&lt;!-- 下面的文字可以无限滚动 --&gt;</span><br><span class="line">&lt;marquee&gt;你好&lt;/marquee&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意，注释不可以嵌套，以下这么写是错的（反例）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">JS</span><br><span class="line">&lt;!--</span><br><span class="line">我是一段注释</span><br><span class="line">&lt;!-- 我是一段注释 --&gt;</span><br><span class="line">--&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一般注释的快捷键 CTRL+&#x2F;</p>
+</li>
+</ul>
+<h3 id="2-8-文档声明"><a href="#2-8-文档声明" class="headerlink" title="2.8 文档声明"></a>2.8 文档声明</h3><ul>
+<li><p>简介</p>
+<p>作用就是告诉浏览器你写的是哪个版本的代码，一般来说现在有HTML4和HTML5 两个常用的版本。</p>
+</li>
+<li><p>写法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">或</span><br><span class="line">&lt;!DOCTYPE HTML&gt;</span><br><span class="line">或</span><br><span class="line">&lt;!doctype html&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意：文档声明，必须在网页的第一行，且在 html 标签的外侧。</p>
+<p>这段也就是一个html的标准的结构</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line">&lt;!DOCTYPE html&gt;  -----这里就是文档声明  </span><br><span class="line"></span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">		&lt;title&gt;&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">		&lt;!-- 我是注释，我只能被自己看到，无法被浏览器解析到 --&gt;</span><br><span class="line">		&lt;p&gt;你好，你好好好爱护 &lt;/p&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="3-常用标签"><a href="#3-常用标签" class="headerlink" title="3. 常用标签"></a>3. 常用标签</h2><h3 id="3-1-排版标签"><a href="#3-1-排版标签" class="headerlink" title="3.1 排版标签"></a>3.1 排版标签</h3><table>
+<thead>
+<tr>
+<th>标签名称</th>
+<th>标签含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>h1 ~ h6</td>
+<td>标题</td>
+</tr>
+<tr>
+<td>p</td>
+<td>段落</td>
+</tr>
+<tr>
+<td>div</td>
+<td>没有任何含义，用于整体布局（生活中的包装袋）。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>h1 最好写一个， h2~h6 能适当多写。</p>
+<p>h1~h6 不能互相嵌套，例如： h1 标签中最好不要写 h2 标签了。</p>
+<p>p 标签很特殊！它里面不能有： h1~h6 、 p 、 div 标签（暂时先这样记，后面会说规律）。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">		&lt;title&gt;&lt;/title&gt;</span><br><span class="line">	&lt;/head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">		&lt;h1&gt;一级标题&lt;/h1&gt;</span><br><span class="line">		&lt;h2&gt;二级标题&lt;/h2&gt;</span><br><span class="line">		&lt;h3&gt;三级标题&lt;/h3&gt;</span><br><span class="line">		&lt;h4&gt;四级标题&lt;/h4&gt;</span><br><span class="line">		&lt;h5&gt;五级标题&lt;/h5&gt;</span><br><span class="line">	</span><br><span class="line">		&lt;div&gt;</span><br><span class="line">			&lt;p&gt;我是一个段落&lt;/p&gt;</span><br><span class="line">			&lt;p&gt;我是一个段落&lt;/p&gt;</span><br><span class="line">			&lt;p&gt;我是一个段落&lt;/p&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-标签的语义化"><a href="#3-2-标签的语义化" class="headerlink" title="3.2 标签的语义化"></a>3.2 标签的语义化</h3><ul>
+<li>概念：用特定的标签，去表达特定的含义。</li>
+<li>原则：标签的默认效果不重要（后期可以通过 CSS 随便控制效果），语义最重要！</li>
+<li>举例：对于 h1 标签，效果是文字很大（不重要），语义是网页主要内容（很重要）。</li>
+<li>优势<ol>
+<li>代码结构清晰可读性强。</li>
+<li>有利于 SEO（搜索引擎优化）。</li>
+<li>方便设备解析（如屏幕阅读器、盲人阅读器等）。</li>
+</ol>
+</li>
+</ul>
+<h3 id="3-3-块级元素和行内元素"><a href="#3-3-块级元素和行内元素" class="headerlink" title="3.3 块级元素和行内元素"></a>3.3 块级元素和行内元素</h3><ul>
+<li><p>块级元素：独占一行（排版标签都是块级元素）。</p>
+</li>
+<li><p>行内元素：不独占一行（目前只学了： input ，稍后会学习更多）。</p>
+</li>
+<li><p>使用规则：</p>
+<blockquote>
+<ol>
+<li>块级元素 中<strong>能</strong>写 行内元素 和 块级元素（简单记：块级元素中几乎什么都能写）。</li>
+<li>. 行内元素 中<strong>能</strong>写 行内元素，但<strong>不能</strong>写 块级元素。</li>
+<li>一些特殊的规则<ul>
+<li>h1~h6 不能互相嵌套。</li>
+<li>p 中不要写块级元素。</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h3 id="3-4-常用的文本标签"><a href="#3-4-常用的文本标签" class="headerlink" title="3.4 常用的文本标签"></a>3.4 常用的文本标签</h3><ol>
+<li><p>用于包裹：词汇、短语等。</p>
+</li>
+<li><p>通常写在排版标签里面。</p>
+</li>
+<li><p>排版标签更宏观（大段的文字），文本标签更微观（词汇、短语）。</p>
+</li>
+<li><p>.文本标签通常都是行内元素。</p>
+<table>
+<thead>
+<tr>
+<th>标签名</th>
+<th>标签语义</th>
+<th>单 &#x2F; 双 标签</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>em</td>
+<td>要着重阅读的内容</td>
+<td>双</td>
+</tr>
+<tr>
+<td>strong</td>
+<td>十分重要的内容（语气比em要强）</td>
+<td>双</td>
+</tr>
+<tr>
+<td>span</td>
+<td>没有语义，用于包裹短语的通用容器</td>
+<td>双</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h3 id="3-5-不常用的文本标签"><a href="#3-5-不常用的文本标签" class="headerlink" title="3.5 不常用的文本标签"></a>3.5 不常用的文本标签</h3><p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/bcy.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="不常用的文本标签"></a></p>
+<blockquote>
+<ol>
+<li>这些不常用的文本标签，编码时不用过于纠结（很少用，用的时候在找）。</li>
+<li>blockquote 与 address 是块级元素，其他的文本标签，都是行内元素。</li>
+<li>有些语义感不强的标签，我们很少使用，例如： small 、 b 、 u 、 q 、 blockquote</li>
+<li>HTML标签太多了！记住那些：重要的、语义感强的标签即可；截止目前，有这些： <strong>h1~h6 、 p 、 div 、 em 、 strong 、 span</strong></li>
+</ol>
+</blockquote>
+<h3 id="3-6图片标签"><a href="#3-6图片标签" class="headerlink" title="3.6图片标签"></a>3.6图片标签</h3><table>
+<thead>
+<tr>
+<th>标签 名</th>
+<th>标签 名</th>
+<th>常用属性</th>
+<th>单 &#x2F; 双 标 签</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>img</td>
+<td>图片</td>
+<td>见下</td>
+<td>单</td>
+</tr>
+</tbody></table>
+<ol>
+<li>img的常用属性</li>
+</ol>
+<blockquote>
+<p>src ：图片路径（又称：图片地址）—— 图片的具体位置</p>
+<p>alt ：图片描述（图片因为某种原因展示不出来了就默认展示描述）</p>
+<p>width ：图片宽度，单位是像素，例如： 200px 或 200</p>
+<p>height ：图片高度， 单位是像素，例如： 200px 或 200</p>
+</blockquote>
+<ol>
+<li>总结</li>
+</ol>
+<blockquote>
+<ol>
+<li>像素（ px ）是一种单位，学到 CSS 时，我们会详细讲解。</li>
+<li>尽量不同时修改图片的宽和高，可能会造成比例失调。</li>
+<li>暂且认为 img 是行内元素（学到 CSS 时，会认识一个新的元素分类，目前咱们只知道： 块、行内）。</li>
+<li>alt 属性的作用： 搜索引擎通过 alt 属性，得知图片的内容。—— 最主要的作用。 当图片无法展示时候，有些浏览器会呈现 alt 属性的值。 盲人阅读器会朗读 alt 属性的值。</li>
+</ol>
+</blockquote>
+<ol>
+<li><p>路径</p>
+<ul>
+<li>相对路径：以<strong>当前位置</strong>作为参考点，去建立路径</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/xdlj.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="相对路径"></a></p>
+<blockquote>
+<p>相对路径中的 .&#x2F; 可以省略不写。</p>
+<p>相对路径依赖的是当前位置，后期若调整了文件位置，那么文件中的路径也要修改。</p>
+</blockquote>
+<ul>
+<li>绝对路径:以根位置作为参考点，去建立路径。</li>
+</ul>
+<blockquote>
+<ol>
+<li>本地绝对路径： E:&#x2F;a&#x2F;b&#x2F;c&#x2F;奥特曼.jpg 。（很少使用）</li>
+<li>网络绝对路径： <a target="_blank" rel="noopener" href="http://www.atguigu.com/images/index_new/logo.png">http://www.atguigu.com/images/index_new/logo.png</a> 。</li>
+</ol>
+<p>使用本地绝对路径，一旦更换设备，路径处理起来比较麻烦，所以很少使用。 使用网络绝对路径，确实方便，但要注意：若服务器开启了防盗链，会造成图片引入 失败。</p>
+</blockquote>
+</li>
+<li><p>常见的图片格式</p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/tpgs.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="常见的图片格式"></a></p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/tpgs2.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="常见的图片格式二"></a></p>
+</li>
+</ol>
+<h3 id="3-7超链接"><a href="#3-7超链接" class="headerlink" title="3.7超链接"></a>3.7超链接</h3><ol>
+<li><p>主要作用：从当前页面进行跳转。可以实现：①跳转到指定页面、②跳转到指定文件（也可触发下载）、③跳转到锚点位置、④唤起指定 应用。</p>
+</li>
+<li><p>标签介绍</p>
+<table>
+<thead>
+<tr>
+<th>标签 名</th>
+<th>标签 名</th>
+<th>常用属性</th>
+<th>单 &#x2F; 双 标 签</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td>超链接</td>
+<td>见下</td>
+<td>双</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<blockquote>
+<p>href ： 指定要跳转到的具体目标。</p>
+<p>target ： 控制跳转时如何打开页面，常用值如下: _self ：在本窗口打开。 _blank ：在新窗口打开。</p>
+<p>id ： 元素的唯一 标识，可用于设置锚点。</p>
+<p>name ： 元素的名字，写在 a 标签中，也能设置锚点。</p>
+</blockquote>
+<ol>
+<li><p>跳转到页面</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line">&lt;!-- 跳转其他网页 --&gt;</span><br><span class="line">&lt;a href=&quot;https://www.jd.com/&quot; target=&quot;_blank&quot;&gt;去京东&lt;/a&gt;</span><br><span class="line">&lt;!-- 跳转本地网页 --&gt;</span><br><span class="line">&lt;a href=&quot;./10_HTML排版标签.html&quot; target=&quot;_self&quot;&gt;去看排版标签&lt;/a&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<blockquote>
+<ol>
+<li>代码中的多个空格、多个回车，都会被浏览器解析成一个空格！</li>
+<li>虽然 a 是行内元素，但 a 元素可以包裹除它自身外的任何元素！</li>
+</ol>
+</blockquote>
+<ol>
+<li><p>跳转到文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;!-- 跳转到页面 --&gt;</span><br><span class="line">  &lt;a href=&quot;./1.6不常用的文本标签.html&quot;&gt;不常用的文本标签&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 跳转到文件 支持跳转到图片 视频 pdf等浏览器支持的文件格式--&gt;</span><br><span class="line">  &lt;a href=&quot;1.7路径/b/02.jpg&quot;&gt;跳转到图片&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">  &lt;!-- 对于浏览器不能直接打开的文件 就会触发下载 --&gt;</span><br><span class="line"></span><br><span class="line">  &lt;a href=&quot;./resource/内部资源.zip&quot;&gt;内部资源&lt;/a&gt;</span><br><span class="line">  &lt;!-- 强制触发下载 --&gt;</span><br><span class="line">  &lt;a href=&quot;./resource/小电影.mp4&quot; download=&quot;电影片段.mp4&quot;&gt;下载电影&lt;/a&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意1：若浏览器无法打开文件，则会引导用户下载。</p>
+<p>注意2：若想强制触发下载，请使用 download 属性，属性值即为下载文件的名称。</p>
+</blockquote>
+</li>
+<li><p>跳转锚点</p>
+<ul>
+<li><p>锚点就是网页中的一个标记的一个地点</p>
+</li>
+<li><p>使用的方式</p>
+<blockquote>
+<ol>
+<li><p>设置锚点</p>
+<p>具有 href 属性的 a 标签是超链接，具有 name 属性的 a 标签是锚点。</p>
+<p>name 和 id 都是区分大小写的，且 id 最好别是数字开头。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">JS</span><br><span class="line">&lt;!-- 第一种方式：a标签配合name属性 --&gt;</span><br><span class="line">&lt;a name=&quot;test1&quot;&gt;&lt;/a&gt;</span><br><span class="line">&lt;!-- 第二种方式：其他标签配合id属性 --&gt;</span><br><span class="line">&lt;h2 id=&quot;test2&quot;&gt;我是一个位置&lt;/h2&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>跳转锚点</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line">&lt;!-- 跳转到test1锚点--&gt;</span><br><span class="line">&lt;a href=&quot;#test1&quot;&gt;去test1锚点&lt;/a&gt;</span><br><span class="line">&lt;!-- 跳到本页面顶部 --&gt;</span><br><span class="line">&lt;a href=&quot;#&quot;&gt;回到顶部&lt;/a&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line"></span><br><span class="line">&lt;!-- 超链接的锚点的跳转 --&gt;</span><br><span class="line">&lt;a href=&quot;#three&quot; name=&quot;top&quot;&gt;跳到三张图的位置&lt;/a&gt;</span><br><span class="line">     </span><br><span class="line">&lt;p&gt;我是第一张图&lt;/p&gt;</span><br><span class="line">&lt;img src=&quot;1.7路径/a/1.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">     </span><br><span class="line">&lt;p&gt;我是第二张图&lt;/p&gt;</span><br><span class="line">&lt;img src=&quot;1.7路径/a/1.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">     </span><br><span class="line">&lt;a name=&quot;three&quot;&gt;&lt;/a&gt;</span><br><span class="line">&lt;p&gt;我是第三张图&lt;/p&gt;</span><br><span class="line">&lt;img src=&quot;1.7路径/a/1.jpg&quot; alt=&quot;&quot;&gt;</span><br><span class="line">     </span><br><span class="line">&lt;a href=&quot;#top&quot;&gt;回到顶部&lt;/a&gt;</span><br><span class="line">&lt;p&gt;我是第=四张图&lt;/p&gt;</span><br><span class="line">&lt;img src=&quot;1.7路径/a/1.jpg&quot; alt=&quot;&quot;&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>唤起指定的应用</p>
+<p>通过a标签，可以唤起设备应用程序</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line">  &lt;!-- 唤起设备拨号 --&gt;</span><br><span class="line">  &lt;a href=&quot;tel:10010&quot;&gt;电话联系&lt;/a&gt;</span><br><span class="line">  &lt;!-- 唤起设备发送有件 --&gt;</span><br><span class="line">  &lt;a href=&quot;mailto:1552312346@qq.com&quot;&gt;邮件联系&lt;/a&gt;</span><br><span class="line">  &lt;!-- 唤起设备发送短信 --&gt;</span><br><span class="line">  &lt;a href=&quot;sms:10086&quot;&gt;发送短信&lt;/a&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="3-8-列表"><a href="#3-8-列表" class="headerlink" title="3.8 列表"></a>3.8 列表</h3><ol>
+<li><p>有序列表</p>
+<p>概念：有顺序或者侧重顺序的列表</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line">&lt;h2&gt;要把大象放冰箱总共分几步&lt;/h2&gt;</span><br><span class="line">&lt;ol&gt;</span><br><span class="line">&lt;li&gt;把冰箱门打开&lt;/li&gt;</span><br><span class="line">&lt;li&gt;把大象放进去&lt;/li&gt;</span><br><span class="line">&lt;li&gt;把冰箱门关上&lt;/li&gt;</span><br><span class="line">&lt;/ol&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>无序列表</p>
+<p>概念:无顺序或不侧重顺序的列表</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line">&lt;h2&gt;我想去的几个城市&lt;/h2&gt;</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">&lt;li&gt;成都&lt;/li&gt;</span><br><span class="line">&lt;li&gt;上海&lt;/li&gt;</span><br><span class="line">&lt;li&gt;西安&lt;/li&gt;</span><br><span class="line">&lt;li&gt;武汉&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自定义列表</p>
+<ul>
+<li>概念:所谓自定义列表，就是一个包含术语名称以及术语描述的列表。</li>
+<li>一个 dl 就是一个自定义列表，一个 dt 就是一个术语名称，一个 dd 就是术语描述（可以有多 个）。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line">&lt;h2&gt;如何高效的学习？&lt;/h2&gt;</span><br><span class="line">&lt;dl&gt;</span><br><span class="line">  &lt;dt&gt;做好笔记&lt;/dt&gt;</span><br><span class="line">  &lt;dd&gt;笔记是我们以后复习的一个抓手&lt;/dd&gt;</span><br><span class="line">  &lt;dd&gt;笔记可以是电子版，也可以是纸质版&lt;/dd&gt;</span><br><span class="line">  &lt;dt&gt;多加练习&lt;/dt&gt;</span><br><span class="line">  &lt;dd&gt;只有敲出来的代码，才是自己的&lt;/dd&gt;</span><br><span class="line">  &lt;dt&gt;别怕出错&lt;/dt&gt;</span><br><span class="line">  &lt;dd&gt;错很正常，改正后并记住，就是经验&lt;/dd&gt;</span><br><span class="line">&lt;/dl&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>列表相关的注意事项</p>
+<ol>
+<li>有序列表和无序列表包裹的一定是li，如果是其他的标签就没有效果</li>
+<li>不能单独的写列表项 li li 标签最好写在 ul 或 ol 中，不要单独使用。</li>
+<li>自定义列表里面一个术语可以有多个术语描述</li>
+<li>列表是可以嵌套使用的</li>
+</ol>
+</li>
+<li><p>列表嵌套</p>
+<p>概念：列表中的某项内容，又包含一个列表（注意：嵌套时，请务必把解构写完整）。、</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line"></span><br><span class="line">&lt;h2&gt;我想去的几个城市&lt;/h2&gt;</span><br><span class="line"> &lt;ul&gt;</span><br><span class="line">   &lt;li&gt;成都&lt;/li&gt;</span><br><span class="line">   &lt;li&gt;</span><br><span class="line">     &lt;span&gt;上海&lt;/span&gt;</span><br><span class="line">     &lt;ul&gt;</span><br><span class="line">       &lt;li&gt;外滩&lt;/li&gt;</span><br><span class="line">       &lt;li&gt;杜莎夫人蜡像馆&lt;/li&gt;</span><br><span class="line">       &lt;li&gt;</span><br><span class="line">         &lt;a href=&quot;https://www.opg.cn/&quot;&gt;东方明珠&lt;/a&gt;</span><br><span class="line">       &lt;/li&gt;</span><br><span class="line">       &lt;li&gt;迪士尼乐园&lt;/li&gt;</span><br><span class="line">     &lt;/ul&gt;</span><br><span class="line">   &lt;/li&gt;</span><br><span class="line">   </span><br><span class="line">   &lt;li&gt;西安&lt;/li&gt;</span><br><span class="line">   &lt;li&gt;武汉&lt;/li&gt;</span><br><span class="line"> &lt;/ul&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="3-9-表格"><a href="#3-9-表格" class="headerlink" title="3.9 表格"></a>3.9 表格</h3><ol>
+<li><p><strong>基本结构：表格标题、表格头部、表格主体、表格脚注，四部分组成。</strong></p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/table.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="表格结构"></a></p>
+</li>
+<li><p>表格涉及到的标签</p>
+<blockquote>
+<p><strong>table</strong> ：表格</p>
+<p><strong>caption</strong> ：表格标题</p>
+<p><strong>thead</strong> ：表格头部</p>
+<p><strong>tbody</strong> ：表格主体</p>
+<p><strong>tfoot</strong> ：表格注脚</p>
+<p><strong>tr</strong> ：每一行</p>
+<p><strong>th 、 td</strong> ：每一个单元格（备注：表格头部中用 th ，表格主体、表格脚注中用： td ）</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/table2.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="表格详细结构"></a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line"></span><br><span class="line">&lt;!-- 表格 --&gt;</span><br><span class="line">  &lt;table&gt;</span><br><span class="line">    &lt;!-- 表格标题 --&gt;</span><br><span class="line">    &lt;countup&gt;我是表格的标题&lt;/countup&gt;</span><br><span class="line">    &lt;!-- 表格头部 --&gt;</span><br><span class="line">    &lt;thead&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;th&gt;姓名&lt;/th&gt;</span><br><span class="line">        &lt;th&gt;学号&lt;/th&gt;</span><br><span class="line">        &lt;th&gt;年龄&lt;/th&gt;</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">      </span><br><span class="line">    &lt;/thead&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 表格主体 --&gt;</span><br><span class="line">    &lt;tbody&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;张三&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;10010&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;18&lt;/td&gt;</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;张三&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;10010&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;18&lt;/td&gt;</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;张三&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;10010&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;18&lt;/td&gt;</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">    &lt;/tbody&gt;</span><br><span class="line">    &lt;!-- 表格脚注 --&gt;</span><br><span class="line">    &lt;tfoot&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;脚注1&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;脚注2&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;脚注3&lt;/td&gt;</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">    &lt;/tfoot&gt;</span><br><span class="line">  &lt;/table&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>表格属性</p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/table3.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="表格属性"></a></p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/table4.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="表格属性"></a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;!-- </span><br><span class="line">    border=”1“ 就是让表格有一个一像素的边框，如果border&gt;1 只对最外层的边框起作用</span><br><span class="line">    cellspacing=&quot;x&quot; 就是设置表格单元格之间的间距为多少个像素，如果为0 的话就有合并单元格的效果</span><br><span class="line">    width=&quot;500px&quot; height=&quot;300px&quot; 设置表格的最小高度和宽度，脚注和头部和脚注的高度是不变的</span><br><span class="line">   --&gt;</span><br><span class="line">  &lt;table border=&quot;1&quot; cellspacing=&quot;0&quot; width=&quot;500px&quot; height=&quot;300px&quot;&gt;</span><br><span class="line">    &lt;countup&gt;我是表格的标题&lt;/countup&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- </span><br><span class="line">      height:设置表格头部的高度</span><br><span class="line">      align： 水平方向上的对齐方式</span><br><span class="line">      valign: 垂直方向上的对齐方式</span><br><span class="line">     --&gt;</span><br><span class="line">    &lt;thead align=&quot;center&quot; valign=&quot;center&quot; height=&quot;100px&quot;&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;!-- </span><br><span class="line">          width ：设置单元格的宽度，同列所有单元格全都受影响。</span><br><span class="line">          heigth ：设置单元格的高度，同行所有单元格全都受影响。</span><br><span class="line">          align ：设置单元格的水平对齐方式。</span><br><span class="line">          valign ：设置单元格的垂直对齐方式。</span><br><span class="line">          rowspan ：指定要跨的行数。</span><br><span class="line">          colspan ：指定要跨的列数。</span><br><span class="line">         --&gt;</span><br><span class="line">        &lt;th&gt;姓名&lt;/th&gt;</span><br><span class="line">        &lt;th&gt;学号&lt;/th&gt;</span><br><span class="line">        &lt;th&gt;年龄&lt;/th&gt;</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">      </span><br><span class="line">    &lt;/thead&gt;</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line">    &lt;!-- </span><br><span class="line">      height:设置表格头部的高度，受到table高度的影响，如果整体的高度不足table的最低的高度，那么设置出来是没有效果的</span><br><span class="line">      align： 水平方向上的对齐方式</span><br><span class="line">      valign: 垂直方向上的对齐方式</span><br><span class="line">     --&gt;</span><br><span class="line">    &lt;tbody height=&quot;200&quot;&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;张三&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;10010&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;18&lt;/td&gt;</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;张三&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;10010&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;18&lt;/td&gt;</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;张三&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;10010&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;18&lt;/td&gt;</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">    &lt;/tbody&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- </span><br><span class="line">         height:设置表格头部的高度，受到table高度的影响，如果整体的高度不足table的最低的高度，那么设置出来是没有效果的</span><br><span class="line">      align： 水平方向上的对齐方式</span><br><span class="line">      valign: 垂直方向上的对齐方式  --&gt;</span><br><span class="line">    &lt;tfoot&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;月薪：10w&lt;/td&gt;</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">    &lt;/tfoot&gt;</span><br><span class="line">  &lt;/table&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>跨行跨列</p>
+<ol>
+<li>rowspan ：指定要跨的行数。</li>
+<li>colspan ：指定要跨的列数。</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/kcb.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="课程表"></a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">  &lt;title&gt;跨行和跨列&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;table border=&quot;1&quot;&gt;</span><br><span class="line">    &lt;caption&gt;xxx班级课程表&lt;/caption&gt;</span><br><span class="line">    &lt;thead&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;th&gt;1-1&lt;/th&gt;</span><br><span class="line">        &lt;th colspan=&quot;5&quot;&gt;1-2&lt;/th&gt;</span><br><span class="line">        &lt;th colspan=&quot;2&quot;&gt;1-8&lt;/th&gt;</span><br><span class="line">      &lt;/tr&gt;</span><br><span class="line">    &lt;/thead&gt;</span><br><span class="line">    &lt;tbody&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;td rowspan=&quot;5&quot;&gt;2-1&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-2&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-3&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-4&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-5&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-6&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-7&lt;/td&gt;</span><br><span class="line">        &lt;td rowspan=&quot;5&quot;&gt;2-8&lt;/td&gt;</span><br><span class="line">      &lt;/tr&gt;&lt;/tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">      </span><br><span class="line">        &lt;td&gt;2-2&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-3&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-4&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-5&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-6&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-7&lt;/td&gt;</span><br><span class="line">       </span><br><span class="line">      &lt;/tr&gt;&lt;/tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;td&gt;2-2&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-3&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-4&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-5&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-6&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-7&lt;/td&gt;</span><br><span class="line">        </span><br><span class="line">      &lt;/tr&gt;&lt;/tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">       </span><br><span class="line">        &lt;td&gt;2-2&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-3&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-4&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-5&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-6&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-7&lt;/td&gt;</span><br><span class="line">        </span><br><span class="line">      &lt;/tr&gt;&lt;/tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">       </span><br><span class="line">        &lt;td&gt;2-2&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-3&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-4&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-5&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-6&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-7&lt;/td&gt;</span><br><span class="line">       </span><br><span class="line">      &lt;/tr&gt;&lt;/tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">        &lt;td rowspan=&quot;3&quot;&gt;2-1&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-2&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-3&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-4&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-5&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-6&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-7&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-8&lt;/td&gt;</span><br><span class="line">      &lt;/tr&gt;&lt;/tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">       </span><br><span class="line">        &lt;td&gt;2-2&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-3&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-4&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-5&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-6&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-7&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-8&lt;/td&gt;</span><br><span class="line">      &lt;/tr&gt;&lt;/tr&gt;</span><br><span class="line">      &lt;tr&gt;</span><br><span class="line">       </span><br><span class="line">        &lt;td&gt;2-2&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-3&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-4&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-5&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-6&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-7&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2-8&lt;/td&gt;</span><br><span class="line">      &lt;/tr&gt;&lt;/tr&gt;</span><br><span class="line">    &lt;/tbody&gt;</span><br><span class="line">  &lt;/table&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="3-10-常用标签补充"><a href="#3-10-常用标签补充" class="headerlink" title="3.10 常用标签补充"></a>3.10 常用标签补充</h3><p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/cybq.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="常用标签补充"></a></p>
+<h2 id="4-表单"><a href="#4-表单" class="headerlink" title="4. 表单"></a>4. 表单</h2><hr>
+<h3 id="4-1-表单基本结构及概念"><a href="#4-1-表单基本结构及概念" class="headerlink" title="4.1 表单基本结构及概念"></a>4.1 表单基本结构及概念</h3><p>概念：表单就是一个包含交互的区域，用于收集用户提供的信息。</p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/form.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="表单基础"></a></p>
+<p>实例代码</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;form action=&quot;https://www.baidu.com/s&quot; target=&quot;_blank&quot; method=&quot;get&quot;&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; name=&quot;wd&quot;&gt;</span><br><span class="line">    &lt;button&gt;去百度搜索&lt;/button&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2表单的常用控件（重点掌握）"><a href="#4-2表单的常用控件（重点掌握）" class="headerlink" title="4.2表单的常用控件（重点掌握）"></a>4.2表单的常用控件（重点掌握）</h3><p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/form1.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="form1"></a></p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/from2.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="form2"></a></p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/from3.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="form3"></a></p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/form4.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="form4"></a></p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/fomr5.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="from5"></a></p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/form6.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="form6"></a></p>
+<p>为什么要有隐藏域？用户都看不到，要这个隐藏域干嘛？</p>
+<blockquote>
+<p>很多时候，在注册的页面，很多技术人员都使用脚本来批量注册账号，用来实现一些非法的目的，通常， 这些输入的信息，都是写脚本的人员用看了以后写的脚本，但是由于隐藏域是用户看不到的，这些技术人员就没办法知道隐藏域具体发送了哪些信息就没办法批量的注册。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;form action=&quot;https://www.baidu.com/s&quot; target=&quot;_blank&quot; method=&quot;get&quot;&gt;</span><br><span class="line">    &lt;!-- type 类似,  name: 数据的名称 value:默认的值 --&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 文本输入框 --&gt;</span><br><span class="line">    账号：&lt;input type=&quot;text&quot; name=&quot;msgname&quot; valid=&quot;admin&quot; maxlength=&quot;10&quot;&gt;&lt;br&gt;&lt;br&gt;</span><br><span class="line">    &lt;!-- 密码输入框 --&gt;</span><br><span class="line">    密码：&lt;input type=&quot;password&quot; name=&quot;pwd&quot; valid=&quot;password&quot; maxlength=&quot;10&quot;&gt;&lt;br&gt;&lt;br&gt;</span><br><span class="line">    &lt;!-- 单选框 --&gt;</span><br><span class="line">    性别：&lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;men&quot;&gt;男  &lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;women&quot;&gt;女&lt;/input&gt;</span><br><span class="line">     &lt;br&gt;&lt;br&gt;</span><br><span class="line">    &lt;!-- 多选框 --&gt;</span><br><span class="line">    爱好: </span><br><span class="line">    &lt;input type=&quot;checkbox&quot; name=&quot;aihao&quot; valid=&quot;smoke&quot;&gt;抽烟</span><br><span class="line">    &lt;input type=&quot;checkbox&quot; name=&quot;aihao&quot; valid=&quot;drink&quot;&gt;喝酒</span><br><span class="line">    &lt;input type=&quot;checkbox&quot; name=&quot;aihao&quot; valid=&quot;tang&quot;&gt;烫头</span><br><span class="line">    </span><br><span class="line">    &lt;!-- 隐藏域  --&gt;</span><br><span class="line">    &lt;input type=&quot;hidden&quot; name=&quot;tag&quot; value=&quot;100&quot;&gt;</span><br><span class="line">    &lt;br&gt;</span><br><span class="line">     &lt;!-- 文本域 --&gt;</span><br><span class="line">     详细地址：&lt;br&gt;</span><br><span class="line">     &lt;textarea name=&quot;msg&quot; rows=&quot;3&quot; cols=&quot;22&quot;&gt;我是文本域&lt;/textarea&gt;</span><br><span class="line">    &lt;br&gt;&lt;br&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 下拉框 --&gt;</span><br><span class="line">    家庭住址</span><br><span class="line">    &lt;select name=&quot;form&quot;&gt;</span><br><span class="line">      &lt;option value=&quot;北京&quot;&gt;北京&lt;/option&gt;</span><br><span class="line">      &lt;option value=&quot;上海&quot;&gt;上海&lt;/option&gt;</span><br><span class="line">      &lt;option value=&quot;广州&quot; selected&gt;广州&lt;/option&gt;</span><br><span class="line">      &lt;option value=&quot;深圳&quot;&gt;深圳&lt;/option&gt;</span><br><span class="line">    &lt;/select&gt;</span><br><span class="line">    &lt;br&gt;</span><br><span class="line">    &lt;!-- 两种重置的方法 --&gt;</span><br><span class="line">    &lt;input type=&quot;reset&quot; value=&quot;点我重置&quot;&gt;</span><br><span class="line">    &lt;button type=&quot;reset&quot;&gt;点我重置&lt;/button&gt;</span><br><span class="line">    &lt;!-- 这种不写任何类型的按钮就相当于是重置的按钮 --&gt;</span><br><span class="line">    &lt;button&gt;去百度搜索&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 这种就是普通的按钮 --&gt;</span><br><span class="line">    &lt;button type=&quot;button&quot;&gt;普通按钮&lt;/button&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3form-小结"><a href="#4-3form-小结" class="headerlink" title="4.3form 小结"></a>4.3form 小结</h3><p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/(1).jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="总结"></a></p>
+<h3 id="4-4框架标签"><a href="#4-4框架标签" class="headerlink" title="4.4框架标签"></a>4.4框架标签</h3><p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/kjbq.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="框架标签"></a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;iframe width=&quot;500px&quot; height=&quot;300px&quot; src=&quot;https://wang-yingqiang.gitee.io/wangyingqiang/2019/10/10/HTNL-CSS/#3-%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE&quot; frameborder=&quot;1&quot;&gt;&lt;/iframe&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-5HTML-实体"><a href="#4-5HTML-实体" class="headerlink" title="4.5HTML 实体"></a>4.5HTML 实体</h3><hr>
+<p>在 HTML 中我们可以用一种<strong>特殊的形式的内容</strong>，来表示某个<strong>符号</strong>，这种特殊形式的内容，就是 HTML 实 体。比如小于号 &lt; 用于定义 HTML 标签的开始。如果我们希望浏览器正确地显示这些字符，我们必须 在 HTML 源码中插入字符实体。</p>
+<blockquote>
+<p>字符实体由<strong>三部分</strong>组成：一个 &amp; 和 一个实体名称（或者一个 # 和 一个实体编号），最后加上一 个分号 ; 。</p>
+</blockquote>
+<p>常见的一些实体</p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/st_.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="实体"></a></p>
+<h3 id="4-6HTML全局属性"><a href="#4-6HTML全局属性" class="headerlink" title="4.6HTML全局属性"></a>4.6HTML全局属性</h3><hr>
+<p>常用的全局属性及意义</p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/qjsx.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="全局属性"></a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes">完整的全局属性及意义</a></p>
+<h3 id="4-7meta信息"><a href="#4-7meta信息" class="headerlink" title="4.7meta信息"></a>4.7meta信息</h3><hr>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/meta.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="meta"></a></p>
+<h2 id="5-HTML小结"><a href="#5-HTML小结" class="headerlink" title="5.HTML小结"></a>5.HTML小结</h2><p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/xj.jpg"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="小结"></a></p>
+<h1 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h1><h2 id="HTML5-简介"><a href="#HTML5-简介" class="headerlink" title="HTML5 简介"></a>HTML5 简介</h2><ol>
+<li>什么是HTML5</li>
+</ol>
+<blockquote>
+<p>HTML5 是新一代的 HTML 标准，2014年10月由万维网联盟（ W3C ）完成标准制定。</p>
+</blockquote>
+<p>官网地址：</p>
+<blockquote>
+<p>W3C 提供： <a target="_blank" rel="noopener" href="https://www.w3.org/TR/html/index.html">https://www.w3.org/TR/html/index.html</a></p>
+<p>WHATWG 提供：<a target="_blank" rel="noopener" href="https://whatwg-cn.github.io/html/multipage">https://whatwg-cn.github.io/html/multipage</a></p>
+</blockquote>
+<p>HTML5 在狭义上是指新一代的 HTML 标准，在广义上是指：整个前端。</p>
+<ol>
+<li>HTML5 优势</li>
+</ol>
+<blockquote>
+<ol>
+<li>针对 JavaScript ，新增了很多可操作的接口。</li>
+<li>新增了一些语义化标签、全局属性。</li>
+<li>新增了多媒体标签，可以很好的替代 flash 。</li>
+<li>更加侧重语义化，对于 SEO 更友好。</li>
+<li>可移植性好，可以大量应用在移动设备上。</li>
+</ol>
+</blockquote>
+<p>3.HTML5兼容性</p>
+<p>支持： Chrome 、 Safari 、 Opera 、 Firefox 等主流浏览器。</p>
+<p>IE 浏览器必须是 9 及以上版本才支持 HTML5 ，且 IE9 仅支持部分 HTML5 新特性</p>
+<h2 id="新增布局标签"><a href="#新增布局标签" class="headerlink" title="新增布局标签"></a>新增布局标签</h2><ol>
+<li><p>新增布局标签</p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/HTML.png"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="HTML"></a></p>
+</li>
+<li><p>新增状态标签</p>
+</li>
+</ol>
+<ul>
+<li>meter 标签</li>
+</ul>
+<p>语义：定义已知范围内的标量测量。也被称为 gauge （尺度），双标签，例如：电量、磁盘用量等。说白了就是手机电量的显示。</p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/mate3.png"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="mater"></a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line">&lt;meter max=&quot;100&quot; min=&quot;0&quot; high=&quot;80&quot; low=&quot;20&quot; value=&quot;30&quot;&gt;&lt;/meter&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>high&#x3D;”80” low&#x3D;”20”就是规定正常的值是多少，如果是处于这个正常的值就是绿色，大于或者小于这个值都是警告的状态</p>
+<p>max&#x3D;”100” min&#x3D;”0” 最大值最小值是多少</p>
+<p>value 当前的值</p>
+</blockquote>
+<ul>
+<li>progress 标签</li>
+</ul>
+<p>语义：显示某个任务完成的进度的指示器，一般用于表示进度条，双标签，例如：工作完成进度</p>
+<p>等</p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/jdt.png"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="进度"></a></p>
+<h2 id="新增列表标签"><a href="#新增列表标签" class="headerlink" title="新增列表标签"></a>新增列表标签</h2><p>datalist ：用于搜索框的关键字提示</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line">&lt;input type=&quot;text&quot; list=&quot;mydata&quot;&gt;</span><br><span class="line">&lt;datalist id=&quot;mydata&quot;&gt;</span><br><span class="line">&lt;option value=&quot;周冬雨&quot;&gt;周冬雨&lt;/option&gt;</span><br><span class="line">&lt;option value=&quot;周杰伦&quot;&gt;周杰伦&lt;/option&gt;</span><br><span class="line">&lt;option value=&quot;温兆伦&quot;&gt;温兆伦&lt;/option&gt;</span><br><span class="line">&lt;option value=&quot;马冬梅&quot;&gt;马冬梅&lt;/option&gt;</span><br><span class="line">&lt;/datalist&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="新增注音标签"><a href="#新增注音标签" class="headerlink" title="新增注音标签"></a>新增注音标签</h2><blockquote>
+<p>给小朋友写网站要用，喜欢编程并且喜欢小孩的可以学</p>
+</blockquote>
+<p>ruby ：包裹需要注音的文字</p>
+<p>rt ：写注音， rt 标签写在 ruby 的里面</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line">&lt;ruby&gt;</span><br><span class="line">&lt;span&gt;魑魅魍魉&lt;/span&gt;</span><br><span class="line">&lt;rt&gt;chī mèi wǎng liǎng &lt;/rt&gt;</span><br><span class="line">&lt;/ruby</span><br></pre></td></tr></table></figure>
+
+<h2 id="新增表单标签"><a href="#新增表单标签" class="headerlink" title="新增表单标签"></a>新增表单标签</h2><ul>
+<li><p>表单控件新增属性</p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/form.png"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="表单"></a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line"></span><br><span class="line">    &lt;form action=&quot;#&quot;&gt;</span><br><span class="line">        &lt;!-- -----------提示用户输入------------ --&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; placeholder=&quot;请输入账号&quot;&gt;</span><br><span class="line">        &lt;textarea  cols=&quot;30&quot; rows=&quot;10&quot; placeholder=&quot;请输入描述信息&quot;&gt;             &lt;/textarea&gt;</span><br><span class="line">        &lt;!-- ------------用户必须输入------------- --&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; required&gt;</span><br><span class="line">        &lt;input type=&quot;radio&quot; name=&quot;sex&quot; required&gt;男</span><br><span class="line">        &lt;input type=&quot;radio&quot; name=&quot;sex&quot; required&gt; 女</span><br><span class="line"></span><br><span class="line">        &lt;!-- 自动获取焦点 --&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; autofocus&gt;</span><br><span class="line"></span><br><span class="line">        &lt;button&gt;提交&lt;/button&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">&lt;/body&gt;  </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>input 新增属性值</p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/newinpt.png"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="input"></a></p>
+</li>
+</ul>
+<h2 id="新增多媒体标签"><a href="#新增多媒体标签" class="headerlink" title="新增多媒体标签"></a>新增多媒体标签</h2><ul>
+<li><p>视频标签</p>
+<p>video 标签用来定义视频，它是双标签</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HTML</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">        video&#123;</span><br><span class="line">            height: 400px;</span><br><span class="line">            width: 600px;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    视频静音了才能自动播放， 主要是为了防止一刀999 </span><br><span class="line">    &lt;video src=&quot;1.mp4&quot; controls autoplay  loop poster=&quot;2.png&quot;&gt;&lt;/video&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>音频标签</p>
+<p>audio 标签用来定义音频，它是双标签。</p>
+<p><a target="_blank" rel="noopener" href="https://1552312346.github.io/img/audio6.png"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://1552312346.github.io/img/audio6.png" alt="音频"></a></p>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/./img/avatar.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/./img/avatar.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">Yalemandy</div><div class="post-copyright__author_desc">不负韶华，以马为梦！</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://yalemandy.github.io/2024/05/16/html+css/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://yalemandy.github.io/2024/05/16/html+css/')">HTML+CSS基础知识</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="/./img/wechatpay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/./img/wechatpay.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/./img/alipay.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/./img/alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://yalemandy.github.io/2024/05/16/html+css/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=undefined&amp;url=https://yalemandy.github.io/2024/05/16/html+css/&amp;pic=undefined" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Yalemandy.github.io" target="_blank">Yalemandy Blog</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E5%89%8D%E7%AB%AF/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>前端<span class="tagsPageCount">5</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://api.gumengya.com/Api/FjImg?format=image&amp;_t=16" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/05/16/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://api.gumengya.com/Api/FjImg?format=image&amp;_t=5" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">【C语言|数据结构】希尔排序</div></div></a></div><div class="next-post pull-right"><a href="/2024/05/16/%E6%A0%88/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://api.gumengya.com/Api/FjImg?format=image&amp;_t=3" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【数据结构|C语言】栈</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/2024/05/16/AJAX/" title="AJAX"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://api.gumengya.com/Api/FjImg?format=image&_t=16" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-05-16</div><div class="title">AJAX</div></div></a></div><div><a href="/2024/05/16/NodeJs/" title="AJAX"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://api.gumengya.com/Api/FjImg?format=image&_t=11" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-05-16</div><div class="title">AJAX</div></div></a></div><div><a href="/2024/05/16/css/" title="CSS + CSS3"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://api.gumengya.com/Api/FjImg?format=image&_t=18" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-05-16</div><div class="title">CSS + CSS3</div></div></a></div><div><a href="/2024/05/16/JavaScript/" title="JavaScript"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://api.gumengya.com/Api/FjImg?format=image&_t=17" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-05-16</div><div class="title">JavaScript</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/./img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.baidu.com/search/detail?ct=503316480&amp;z=0&amp;ipn=d&amp;word=%E5%A5%BD%E7%9C%8B%E7%9A%84%E8%A1%A8%E6%83%85%20%E6%A9%99%E5%AD%90&amp;step_word=&amp;hs=0&amp;pn=24&amp;spn=0&amp;di=7360350738658099201&amp;pi=0&amp;rn=1&amp;tn=baiduimagedetail&amp;is=0%2C0&amp;istype=2&amp;ie=utf-8&amp;oe=utf-8&amp;in=&amp;cl=2&amp;lm=-1&amp;st=-1&amp;cs=2559306466%2C3544273594&amp;os=1478209891%2C1636718095&amp;simid=3232128632%2C3806131299&amp;adpicid=0&amp;lpn=0&amp;ln=1575&amp;fr=&amp;fmq=1718512538121_R&amp;fm=result&amp;ic=&amp;s=undefined&amp;hd=&amp;latest=&amp;copyright=&amp;se=&amp;sme=&amp;tab=0&amp;width=&amp;height=&amp;face=undefined&amp;ist=&amp;jit=&amp;cg=&amp;bdtype=0&amp;oriquery=&amp;objurl=https%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F18%2F02%2F23%2F3d926269ec38867d641683a937ee7956.jpg!%2Ffwfh%2F804x883%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue&amp;fromurl=ippr_z2C%24qAzdH3FAzdH3Flafij3t_z%26e3Bv54AzdH3Ff7vwtAzdH3Fdddlbdmd_z%26e3Bip4s&amp;gsm=1e&amp;rpstart=0&amp;rpnum=0&amp;islist=&amp;querylist=&amp;nojc=undefined&amp;dyTabStr=MCwzLDIsMSw0LDYsNSw3LDgsOQ%3D%3D&amp;lid=9399733926543576123" alt="status"/></div></div><div class="author-info__description"><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">这有关于<b style="color:#fff">产品、设计、开发</b>相关的问题和看法，还有<b style="color:#fff">文章翻译</b>和<b style="color:#fff">分享</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">相信你可以在这里找到对你有用的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">Yalemandy</h1><div class="author-info__desc">不负韶华，以马为梦！</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/Yalemandy/Yalemandy.github.io" target="_blank" title="Github"><i class="fa-brands fa-github faa-data"></i></a><a class="social-icon faa-parent animated-hover" href="https://blog.csdn.net/2301_76766304?spm=1000.2115.3001.5343" target="_blank" title="CSDN"><i class="fa-sharp fa-solid fa-c faa-data"></i></a></div></div></div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(https://bu.dusays.com/2023/01/13/63c02edf44033.png) center center / 100% no-repeat"></div><div class="back face" style="background: url(https://bu.dusays.com/2023/05/13/645fa415e8694.png) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML4"><span class="toc-number">1.</span> <span class="toc-text">HTML4</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AF%BE%E5%89%8D%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.</span> <span class="toc-text">1.课前简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%89%8D%E5%BA%8F%E7%9F%A5%E8%AF%86"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1 前序知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2计算机基础知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-C-S%E6%9E%B6%E6%9E%84%E4%B8%8EB-S%E6%9E%B6%E6%9E%84"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3. C&#x2F;S架构与B&#x2F;S架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86"><span class="toc-number">1.1.4.</span> <span class="toc-text">1.4浏览器相关知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-%E7%BD%91%E9%A1%B5%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.5.</span> <span class="toc-text">1.5 网页相关概念</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-HTML%E5%9F%BA%E7%A1%80"><span class="toc-number">1.2.</span> <span class="toc-text">2.HTML基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-HTML%E6%A6%82%E5%BF%B5"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1 HTML概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2 准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-HTML%E6%A0%87%E7%AD%BE"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3 HTML标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-HTML-%E6%A0%87%E7%AD%BE%E5%B1%9E%E6%80%A7"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.4 HTML 标签属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-HTML-%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.5.</span> <span class="toc-text">2.5 HTML 的基本结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E5%B8%B8%E7%94%A8%E7%9A%84%E4%BB%A3%E7%A0%81%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-number">1.2.6.</span> <span class="toc-text">2.6 常用的代码编辑器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-HTML%E6%B3%A8%E9%87%8A"><span class="toc-number">1.2.7.</span> <span class="toc-text">2.7 HTML注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8-%E6%96%87%E6%A1%A3%E5%A3%B0%E6%98%8E"><span class="toc-number">1.2.8.</span> <span class="toc-text">2.8 文档声明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE"><span class="toc-number">1.3.</span> <span class="toc-text">3. 常用标签</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%8E%92%E7%89%88%E6%A0%87%E7%AD%BE"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1 排版标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E6%A0%87%E7%AD%BE%E7%9A%84%E8%AF%AD%E4%B9%89%E5%8C%96"><span class="toc-number">1.3.2.</span> <span class="toc-text">3.2 标签的语义化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0%E5%92%8C%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0"><span class="toc-number">1.3.3.</span> <span class="toc-text">3.3 块级元素和行内元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E5%B8%B8%E7%94%A8%E7%9A%84%E6%96%87%E6%9C%AC%E6%A0%87%E7%AD%BE"><span class="toc-number">1.3.4.</span> <span class="toc-text">3.4 常用的文本标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-%E4%B8%8D%E5%B8%B8%E7%94%A8%E7%9A%84%E6%96%87%E6%9C%AC%E6%A0%87%E7%AD%BE"><span class="toc-number">1.3.5.</span> <span class="toc-text">3.5 不常用的文本标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6%E5%9B%BE%E7%89%87%E6%A0%87%E7%AD%BE"><span class="toc-number">1.3.6.</span> <span class="toc-text">3.6图片标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="toc-number">1.3.7.</span> <span class="toc-text">3.7超链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8-%E5%88%97%E8%A1%A8"><span class="toc-number">1.3.8.</span> <span class="toc-text">3.8 列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9-%E8%A1%A8%E6%A0%BC"><span class="toc-number">1.3.9.</span> <span class="toc-text">3.9 表格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-10-%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE%E8%A1%A5%E5%85%85"><span class="toc-number">1.3.10.</span> <span class="toc-text">3.10 常用标签补充</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%A1%A8%E5%8D%95"><span class="toc-number">1.4.</span> <span class="toc-text">4. 表单</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E8%A1%A8%E5%8D%95%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E5%8F%8A%E6%A6%82%E5%BF%B5"><span class="toc-number">1.4.1.</span> <span class="toc-text">4.1 表单基本结构及概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2%E8%A1%A8%E5%8D%95%E7%9A%84%E5%B8%B8%E7%94%A8%E6%8E%A7%E4%BB%B6%EF%BC%88%E9%87%8D%E7%82%B9%E6%8E%8C%E6%8F%A1%EF%BC%89"><span class="toc-number">1.4.2.</span> <span class="toc-text">4.2表单的常用控件（重点掌握）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3form-%E5%B0%8F%E7%BB%93"><span class="toc-number">1.4.3.</span> <span class="toc-text">4.3form 小结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4%E6%A1%86%E6%9E%B6%E6%A0%87%E7%AD%BE"><span class="toc-number">1.4.4.</span> <span class="toc-text">4.4框架标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5HTML-%E5%AE%9E%E4%BD%93"><span class="toc-number">1.4.5.</span> <span class="toc-text">4.5HTML 实体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-6HTML%E5%85%A8%E5%B1%80%E5%B1%9E%E6%80%A7"><span class="toc-number">1.4.6.</span> <span class="toc-text">4.6HTML全局属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-7meta%E4%BF%A1%E6%81%AF"><span class="toc-number">1.4.7.</span> <span class="toc-text">4.7meta信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-HTML%E5%B0%8F%E7%BB%93"><span class="toc-number">1.5.</span> <span class="toc-text">5.HTML小结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML5"><span class="toc-number">2.</span> <span class="toc-text">HTML5</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML5-%E7%AE%80%E4%BB%8B"><span class="toc-number">2.1.</span> <span class="toc-text">HTML5 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E%E5%B8%83%E5%B1%80%E6%A0%87%E7%AD%BE"><span class="toc-number">2.2.</span> <span class="toc-text">新增布局标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E%E5%88%97%E8%A1%A8%E6%A0%87%E7%AD%BE"><span class="toc-number">2.3.</span> <span class="toc-text">新增列表标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E%E6%B3%A8%E9%9F%B3%E6%A0%87%E7%AD%BE"><span class="toc-number">2.4.</span> <span class="toc-text">新增注音标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E%E8%A1%A8%E5%8D%95%E6%A0%87%E7%AD%BE"><span class="toc-number">2.5.</span> <span class="toc-text">新增表单标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E%E5%A4%9A%E5%AA%92%E4%BD%93%E6%A0%87%E7%AD%BE"><span class="toc-number">2.6.</span> <span class="toc-text">新增多媒体标签</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最近发布</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/05/16/AJAX/" title="AJAX"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://api.gumengya.com/Api/FjImg?format=image&amp;_t=16" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AJAX"/></a><div class="content"><a class="title" href="/2024/05/16/AJAX/" title="AJAX">AJAX</a><time datetime="2024-05-16T10:09:23.000Z" title="发表于 2024-05-16 18:09:23">2024-05-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/16/NodeJs/" title="AJAX"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://api.gumengya.com/Api/FjImg?format=image&amp;_t=11" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="AJAX"/></a><div class="content"><a class="title" href="/2024/05/16/NodeJs/" title="AJAX">AJAX</a><time datetime="2024-05-16T10:09:23.000Z" title="发表于 2024-05-16 18:09:23">2024-05-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/16/vue3/" title="vue3"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://api.gumengya.com/Api/FjImg?format=image&amp;_t=10" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="vue3"/></a><div class="content"><a class="title" href="/2024/05/16/vue3/" title="vue3">vue3</a><time datetime="2024-05-16T10:09:23.000Z" title="发表于 2024-05-16 18:09:23">2024-05-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/16/Git/" title="Git笔记"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://api.gumengya.com/Api/FjImg?format=image&amp;_t=15" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git笔记"/></a><div class="content"><a class="title" href="/2024/05/16/Git/" title="Git笔记">Git笔记</a><time datetime="2024-05-16T10:09:23.000Z" title="发表于 2024-05-16 18:09:23">2024-05-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/05/16/%E6%99%BA%E6%85%A7%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE/" title="智慧商城项目"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://api.gumengya.com/Api/FjImg?format=image&amp;_t=19" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="智慧商城项目"/></a><div class="content"><a class="title" href="/2024/05/16/%E6%99%BA%E6%85%A7%E5%95%86%E5%9F%8E%E9%A1%B9%E7%9B%AE/" title="智慧商城项目">智慧商城项目</a><time datetime="2024-05-16T10:09:23.000Z" title="发表于 2024-05-16 18:09:23">2024-05-16</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2024 By <a class="footer-bar-link" href="/" title="Yalemandy" target="_blank">Yalemandy</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">7</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" href="/www.yxyy04.cn" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" href="/793335974.github.io" title="wjt-blog"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://c.wallhere.com/photos/fd/08/3840x2160_px_black_background_Patrick_Star_Simple_Simple_Background_SpongeBob_SquarePants-1313473.jpg!d" alt="wjt-blog"/><span class="back-menu-item-text">wjt-blog</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://image.anheyu.com/" title="安知鱼图床"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="安知鱼图床"/><span class="back-menu-item-text">安知鱼图床</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/fcircle/"><i class="anzhiyufont anzhiyu-icon-artstation faa-tada" style="font-size: 0.9em;"></i><span> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/air-conditioner/"><i class="anzhiyufont anzhiyu-icon-fan faa-tada" style="font-size: 0.9em;"></i><span> 小空调</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Es6/" style="font-size: 0.88rem;">Es6<sup>1</sup></a><a href="/tags/Git/" style="font-size: 0.88rem;">Git<sup>1</sup></a><a href="/tags/Node-Js/" style="font-size: 0.88rem;">Node.Js<sup>1</sup></a><a href="/tags/vue/" style="font-size: 0.88rem;">vue<sup>1</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 0.88rem;">前端<sup>5</sup></a><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 0.88rem;">数据结构<sup>9</sup></a><a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 0.88rem;">项目<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("04/01/2021 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2020 By 安知鱼 V1.6.12",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      "color:#425AEF",
+      "",
+      "color:#425AEF",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 Yalemandy 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="programming"></div><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
